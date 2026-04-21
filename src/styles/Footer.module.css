@@ -1,0 +1,188 @@
+/* Footer.module.css — contrast fixed */
+
+.footer {
+  background: #fdf8f9;
+  color: #3d1f2b;
+  padding: 60px 48px 32px;
+  font-family: 'DM Sans', sans-serif;
+  border-top: 1.5px solid #e8c4d0;
+}
+
+.brandName {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 32px;
+  font-weight: 400;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  color: #7a1f42;
+  margin: 0 0 6px;
+}
+.brandTagline {
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #7a5c65;
+  margin: 0 0 20px;
+  font-weight: 500;
+}
+.contactItem {
+  font-size: 13px;
+  color: #4a2a35;
+  line-height: 2;
+  margin: 0;
+}
+
+.socialRow {
+  display: flex;
+  gap: 10px;
+  margin-top: 24px;
+}
+.socialLink {
+  width: 34px;
+  height: 34px;
+  border: 1.5px solid #c4879a;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: #7a1f42;
+  font-size: 12px;
+  font-weight: 600;
+  transition: border-color 0.2s, background-color 0.2s;
+}
+.socialLink:hover {
+  border-color: #7a1f42;
+  background-color: #f5dce5;
+}
+
+.colTitle {
+  font-size: 10px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #5a3a44;
+  margin: 0 0 20px;
+  font-weight: 700;
+}
+.linkList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.linkList li {
+  margin-bottom: 12px;
+}
+.linkList a {
+  text-decoration: none;
+  color: #4a2a35;
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.3px;
+  transition: color 0.2s;
+}
+.linkList a:hover {
+  color: #7a1f42;
+}
+
+.newsletterText {
+  font-size: 12px;
+  color: #5a3a44;
+  line-height: 1.7;
+  margin: 0 0 16px;
+}
+.inputWrap {
+  display: flex;
+  margin-bottom: 12px;
+}
+.emailInput {
+  flex: 1;
+  background: #ffffff;
+  border: 1.5px solid #c4879a;
+  border-right: none;
+  padding: 11px 16px;
+  color: #3d1f2b;
+  font-size: 13px;
+  font-family: 'DM Sans', sans-serif;
+  outline: none;
+  border-radius: 10px 0 0 10px;
+  transition: border-color 0.2s;
+}
+.emailInput::placeholder {
+  color: #a07080;
+}
+.emailInput:focus {
+  border-color: #7a1f42;
+}
+.signupBtn {
+  background: #7a1f42;
+  color: #ffffff;
+  border: none;
+  padding: 11px 20px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 0 10px 10px 0;
+  font-family: 'DM Sans', sans-serif;
+  white-space: nowrap;
+  transition: background-color 0.2s;
+}
+.signupBtn:hover {
+  background: #5a0f2e;
+}
+.signupNote {
+  font-size: 11px;
+  color: #7a5c65;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1.3fr;
+  gap: 40px;
+  margin-bottom: 52px;
+}
+
+.divider {
+  border: none;
+  border-top: 1.5px solid #e8c4d0;
+  margin: 0 0 24px;
+}
+.bottomBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.copyright {
+  font-size: 11px;
+  color: #7a5c65;
+  letter-spacing: 0.5px;
+  margin: 0;
+  font-weight: 500;
+}
+.bottomLinks {
+  display: flex;
+  gap: 24px;
+}
+.bottomLinks a {
+  font-size: 11px;
+  color: #7a5c65;
+  text-decoration: none;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  transition: color 0.2s;
+}
+.bottomLinks a:hover {
+  color: #7a1f42;
+}
+
+@media (max-width: 768px) {
+  .footer { padding: 40px 24px 28px; }
+  .grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+}
+@media (max-width: 480px) {
+  .grid { grid-template-columns: 1fr; }
+  .bottomBar { flex-direction: column; gap: 12px; text-align: center; }
+}

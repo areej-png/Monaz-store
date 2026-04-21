@@ -1,0 +1,162 @@
+.top-bar {
+  background-color: #b5577a;
+  color: #ffffff;
+  font-size: 13px;
+  
+  display: flex;
+  align-items: center;
+  /* justify-content: space-between;
+  flex-wrap: wrap; */
+  gap: 8px;
+}
+/* ── TOP BAR INNER (large screen centering) ── */
+.top-bar-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 9px 32px;
+}
+
+.top-left {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.top-left svg {
+  font-size: 13px;
+}
+
+.top-center {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  text-align: center;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.top-center a {
+  color: #ffe0ec;
+  text-decoration: underline;
+  font-weight: 500;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.top-center a:hover {
+  color: #ffffff;
+}
+
+.top-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.social-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255, 255, 255, 0.35);
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 13px;
+  transition: background-color 0.2s ease;
+}
+
+.phone-icon {
+  color: white;
+  margin-right: 5px;
+  font-size: 14px;
+}
+
+.moon-icon {
+  color: white;
+  margin-right: 6px;
+  font-size: 14px;
+}
+.social-icon:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Tablet - 768px */
+@media (max-width: 768px) {
+  .top-bar {
+    padding: 8px 20px;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+  }
+  .top-bar-inner {
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .top-left {
+    font-size: 12px;
+  }
+
+  .top-center {
+    font-size: 12px;
+    text-align: center;
+  }
+
+  .top-right {
+    gap: 10px;
+  }
+}
+
+/* Mobile - 480px */
+@media (max-width: 480px) {
+  .top-bar {
+    padding: 8px 14px;
+    font-size: 11px;
+    gap: 5px;
+  }
+
+  .top-left {
+    font-size: 11px;
+  }
+
+  .top-center {
+    font-size: 11px;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .social-icon {
+    width: 26px;
+    height: 26px;
+    font-size: 12px;
+  }
+}
+
+/* Small Mobile - 360px */
+@media (max-width: 360px) {
+  .top-bar {
+    padding: 7px 10px;
+    font-size: 10px;
+  }
+
+  .top-left span {
+    display: none;
+  }
+
+  .social-icon {
+    width: 24px;
+    height: 24px;
+    font-size: 11px;
+  }
+}
