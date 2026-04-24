@@ -12,7 +12,7 @@ import BlogPostPage from "./pages/BlogPostPage";
 import NightSuitBlogList from "./components/Nightsuitbloglist";
 import NightSuitBlogPostPage from "./pages/nightsbpp";
 import CheckoutPage from "./pages/CheckoutPage";
-import MistakesBlogList from "./components/MistakesBlogList";
+import MistakesBlogList from "./components/MistakesblogList";
 import MistakesBlogPostPage from "./pages/MistakesblogPostPage";
 import BraCalculatorPage from "./pages/BraCalculatorPage";
 import FAQPage from "./pages/FAQPage";
@@ -20,7 +20,7 @@ import ReturnsPage from "./pages/ReturnsPage";
 import AffiliatePage from "./pages/AffiliatePage";
 import AboutPage from "./pages/AboutPage";
 import TermsPage from "./pages/TermsPage";
-import PrivacyPage from "./pages/PrivacyPage";
+import PrivacyPage from "./pages/Privacypage";
 import SitemapPage from "./pages/Sitemappage";
 
 
