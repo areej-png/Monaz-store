@@ -1,6 +1,6 @@
 // pages/MistakesBlogPostPage.jsx
 import { useParams, useNavigate, useLocation } from "react-router-dom";
-import { MISTAKES_POSTS } from "../Data/mistakesPageData";
+import { MISTAKES_POSTS } from "../Data/Mistakespagedata";
 import MistakesBlogDetail from "../components/MistakesBlogDetail";
 import "../styles/blogPage.css";
 

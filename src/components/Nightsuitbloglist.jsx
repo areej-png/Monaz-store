@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { NIGHT_SUIT_POSTS } from "../Data/nsPageData";
+import { NIGHT_SUIT_POSTS } from "../Data/nspageData";
 import { useLang } from "../hooks/useLang";
 import LangToggle from "./LangToggle";
 import "../styles/blogPage.css";

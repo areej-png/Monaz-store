@@ -2,7 +2,7 @@
 import {
   SEASONS, SEASON_PRO_TIPS, SEASON_FIT_CHECKS,
   SEASON_SIZE_TABLE, NS_TAGS,
-} from "../Data/nsPageData";
+} from "../Data/nspageData";
 import { useLang } from "../hooks/useLang";
 import LangToggle from "./LangToggle";
 import "../styles/blogPage.css";

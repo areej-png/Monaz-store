@@ -1,4 +1,4 @@
-import { NIGHT_SUIT_STYLES, STYLE_OUTFIT_GUIDE, STYLE_TAGS } from "../Data/nsPageData";
+import { NIGHT_SUIT_STYLES, STYLE_OUTFIT_GUIDE, STYLE_TAGS } from "../Data/nspageData";
 import { useLang } from "../hooks/useLang";
 import LangToggle from "./LangToggle";
 import "../styles/blogPage.css";

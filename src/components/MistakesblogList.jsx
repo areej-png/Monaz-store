@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { MISTAKES_POSTS } from "../Data/mistakesPageData";
+import { MISTAKES_POSTS } from "../Data/Mistakespagedata";
 import { useLang } from "../hooks/useLang";
 import LangToggle from "./LangToggle";
 import "../styles/blogPage.css";
