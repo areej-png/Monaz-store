@@ -21,7 +21,7 @@ import AffiliatePage from "./pages/AffiliatePage";
 import AboutPage from "./pages/AboutPage";
 import TermsPage from "./pages/TermsPage";
 import PrivacyPage from "./pages/PrivacyPage";
-import SitemapPage from "./pages/SitemapPage";
+import SitemapPage from "./pages/Sitemappage";
 
 
 function App() {
