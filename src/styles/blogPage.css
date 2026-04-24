@@ -573,3 +573,62 @@
 .mistake-fix-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 5px; }
 
 .mistake-fix-text { font-size: 12px; color: var(--gray-600); line-height: 1.6; }
+/* ── Language Toggle — blogPage.css ke end mein paste karein ─────────────── */
+
+/* List page header — pill aur toggle ek line mein */
+.list-header-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.6rem;
+}
+
+/* Detail page — back btn aur toggle ek line mein */
+.detail-top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+}
+
+/* Toggle wrapper */
+.lang-toggle-wrap {
+  display: inline-flex;
+  align-items: center;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-pill);
+  padding: 3px;
+  gap: 2px;
+}
+
+/* Each EN / اردو button */
+.lang-btn {
+  font-size: 12px;
+  font-weight: 700;
+  padding: 4px 14px;
+  border: none;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  background: transparent;
+  color: var(--gray-400);
+  font-family: var(--font-sans);
+  transition: background 0.18s ease, color 0.18s ease;
+  letter-spacing: 0.03em;
+}
+
+.lang-btn--active {
+  background: var(--pink-400);
+  color: #fff;
+}
+
+.lang-btn:not(.lang-btn--active):hover {
+  background: var(--pink-50);
+  color: var(--pink-800);
+}
+
+.lang-divider {
+  width: 1px;
+  height: 16px;
+  background: var(--border-color);
+}

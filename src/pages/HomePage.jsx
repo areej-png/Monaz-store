@@ -1,32 +1,38 @@
 import { useNavigate } from "react-router-dom";
 import { useRef, useEffect, useCallback } from "react";
 import { hitArticlesData } from "../Data/hitArticlesData";
+import { productsData } from "../Data/productsData";
+import HitCard from "../components/HitCard";
 import { categoryBannersData } from "../Data/categoryBannersData";
 import { blogData } from "../Data/blogData";
 import "../styles/HomePage.css";
 
 const HomePage = ({ onAddToCart }) => {
   const navigate = useNavigate();
-  const hitsRef        = useRef(null);
-  const blogRef        = useRef(null);
+  const hitsRef = useRef(null);
+  const blogRef = useRef(null);
   const hitsWrapperRef = useRef(null);
   const blogWrapperRef = useRef(null);
+  const hitProducts = productsData.filter((product) =>
+    hitArticlesData.includes(product.id)
+  );
+  console.log("first product images:", hitProducts[0]?.images);
 
   // ── Dynamically set card widths based on ACTUAL rendered container ──
   const setCardWidths = useCallback(() => {
 
     // ── HITS ──
     if (hitsWrapperRef.current && hitsRef.current) {
-      const wrapperW   = hitsWrapperRef.current.offsetWidth;
-      const arrowL     = hitsWrapperRef.current.querySelector(".slider-arrow--left");
-      const arrowR     = hitsWrapperRef.current.querySelector(".slider-arrow--right");
-      const arrowLW    = arrowL ? arrowL.offsetWidth + parseFloat(getComputedStyle(arrowL).marginRight)  : 0;
-      const arrowRW    = arrowR ? arrowR.offsetWidth + parseFloat(getComputedStyle(arrowR).marginLeft)   : 0;
+      const wrapperW = hitsWrapperRef.current.offsetWidth;
+      const arrowL = hitsWrapperRef.current.querySelector(".slider-arrow--left");
+      const arrowR = hitsWrapperRef.current.querySelector(".slider-arrow--right");
+      const arrowLW = arrowL ? arrowL.offsetWidth + parseFloat(getComputedStyle(arrowL).marginRight) : 0;
+      const arrowRW = arrowR ? arrowR.offsetWidth + parseFloat(getComputedStyle(arrowR).marginLeft) : 0;
       const scrollArea = wrapperW - arrowLW - arrowRW;
 
-      const gap        = 12;
-      const visible    = window.innerWidth <= 768 ? 3 : 5;
-      const cardW      = Math.floor((scrollArea - gap * (visible - 1)) / visible);
+      const gap = 12;
+      const visible = window.innerWidth <= 768 ? 3 : 5;
+      const cardW = Math.floor((scrollArea - gap * (visible - 1)) / visible);
 
       hitsRef.current.querySelectorAll(".hit-card").forEach((c) => {
         c.style.width = `${cardW}px`;
@@ -44,16 +50,16 @@ const HomePage = ({ onAddToCart }) => {
         return;
       }
 
-      const wrapperW   = blogWrapperRef.current.offsetWidth;
-      const arrowL     = blogWrapperRef.current.querySelector(".slider-arrow--left");
-      const arrowR     = blogWrapperRef.current.querySelector(".slider-arrow--right");
-      const arrowLW    = arrowL ? arrowL.offsetWidth + parseFloat(getComputedStyle(arrowL).marginRight)  : 0;
-      const arrowRW    = arrowR ? arrowR.offsetWidth + parseFloat(getComputedStyle(arrowR).marginLeft)   : 0;
+      const wrapperW = blogWrapperRef.current.offsetWidth;
+      const arrowL = blogWrapperRef.current.querySelector(".slider-arrow--left");
+      const arrowR = blogWrapperRef.current.querySelector(".slider-arrow--right");
+      const arrowLW = arrowL ? arrowL.offsetWidth + parseFloat(getComputedStyle(arrowL).marginRight) : 0;
+      const arrowRW = arrowR ? arrowR.offsetWidth + parseFloat(getComputedStyle(arrowR).marginLeft) : 0;
       const scrollArea = wrapperW - arrowLW - arrowRW;
 
-      const gap        = 16;
-      const visible    = window.innerWidth <= 768 ? 1 : 2;
-      const cardW      = Math.floor((scrollArea - gap * (visible - 1)) / visible);
+      const gap = 16;
+      const visible = window.innerWidth <= 768 ? 1 : 2;
+      const cardW = Math.floor((scrollArea - gap * (visible - 1)) / visible);
 
       blogRef.current.querySelectorAll(".blog-card").forEach((c) => {
         c.style.width = `${cardW}px`;
@@ -72,7 +78,7 @@ const HomePage = ({ onAddToCart }) => {
     const container = ref.current;
     if (!container) return;
     const firstCard = container.querySelector(".hit-card, .blog-card");
-    const amount    = firstCard ? firstCard.offsetWidth + gap : 220;
+    const amount = firstCard ? firstCard.offsetWidth + gap : 220;
     container.scrollLeft += direction === "left" ? -amount : amount;
   };
 
@@ -83,66 +89,55 @@ const HomePage = ({ onAddToCart }) => {
         <div className="section-inner">
           <h2 className="section-title">Worth the Hype</h2>
 
-            <div className="slider-wrapper" ref={hitsWrapperRef}>
-              <button
-                className="slider-arrow slider-arrow--left"
-                onClick={() => scroll(hitsRef, "left")}
-                aria-label="Scroll left"
-              >
-                &#8249;
-              </button>
+          <div className="slider-wrapper" ref={hitsWrapperRef}>
+            <button
+              className="slider-arrow slider-arrow--left"
+              onClick={() => scroll(hitsRef, "left")}
+              aria-label="Scroll left"
+            >
+              &#8249;
+            </button>
 
-              <div className="hits-scroll" ref={hitsRef}>
-                <div className="hits-track">
-                  {hitArticlesData.map((item, index) => (
-                    <div key={index} className="hit-card">
-                      <div
-                        className="hit-img-wrapper"
-                        onClick={() => navigate(`/product/${item.productId}`)}
-                        style={{ cursor: "pointer" }}
-                      >
-                        <img
-                          src={item.image}
-                          alt={item.label}
-                          className="hit-img"
-                        />
-                      </div>
-                      <p className="hit-label">{item.label}</p>
-                      <p className="hit-price">
-                        Rs {item.price.toLocaleString()}
-                      </p>
-                    </div>
-                  ))}
-                </div>
+            <div className="hits-scroll" ref={hitsRef}>
+              <div className="hits-track">
+                {hitProducts.map((item) => (
+                  <HitCard key={item.id} item={item} />
+                ))}
               </div>
-
-              <button
-                className="slider-arrow slider-arrow--right"
-                onClick={() => scroll(hitsRef, "right")}
-                aria-label="Scroll right"
-              >
-                &#8250;
-              </button>
             </div>
+
+            <button
+              className="slider-arrow slider-arrow--right"
+              onClick={() => scroll(hitsRef, "right")}
+              aria-label="Scroll right"
+            >
+              &#8250;
+            </button>
+          </div>
         </div>
       </section>
+
 
       {/* ── CATEGORY BANNERS ── */}
       <section className="category-banners-section">
         <div className="section-inner">
           <h2 className="section-title">Shop By Category</h2>
           <div className="category-banners-grid">
-            {categoryBannersData.map((item) => (
+            {categoryBannersData.filter((item) => item.showOnHome).map((item) => (
               <div
                 key={item.id}
                 className="category-banner-card"
                 onClick={() => navigate(`/category/${item.category}`)}
               >
-                <img
-                  src={item.image}
-                  alt={item.label}
-                  className="category-banner-img"
-                />
+                <picture>
+                  <source media="(max-width: 480px)" srcSet={item.imageMobile} />
+                  <source media="(max-width: 768px)" srcSet={item.imageTablet} />
+                  <img
+                    src={item.imageDesktop}
+                    alt={item.label}
+                    className="category-banner-img"
+                  />
+                </picture>
                 <div className="category-banner-label">
                   <span>{item.label}</span>
                 </div>

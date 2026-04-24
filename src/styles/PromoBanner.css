@@ -80,33 +80,59 @@
 
 .promo-features svg {
   font-size: 14px;
-  color: #b5577a;
+  color: #5a2a3a;
 }
 
 /* Ticker */
 .promo-ticker {
-  background-color: #b5577a;
-  color: #ffffff;
-  font-size: 13px;
-  padding: 7px 0;
+  background-color: #f5dde6;
   overflow: hidden;
-  white-space: nowrap;
+  padding: 10px 0;
 }
 
 .ticker-track {
   display: inline-flex;
-  gap: 48px;
+  gap: 0;
   animation: ticker 18s linear infinite;
+  white-space: nowrap;
 }
 
-.ticker-track span {
+/* Divider between items */
+.promo-feature-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 40px;
+  border-right: 1px solid #d9a0b5;
   flex-shrink: 0;
+}
+
+.promo-icon {
+  font-size: 28px;
+  color: #b5577a;
+  flex-shrink: 0;
+}
+
+.promo-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.promo-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: #333;
+}
+
+.promo-sub {
+  font-size: 12px;
+  color: #555;
 }
 
 @keyframes ticker {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
-}
+} 
 
 /* Tablet */
 @media (max-width: 768px) {

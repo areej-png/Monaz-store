@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { FaTruck, FaBox, FaUndo } from "react-icons/fa";
+import { TbTruckDelivery } from "react-icons/tb";
 import "../styles/PromoBanner.css";
 
 const PromoBanner = ({ images }) => {
@@ -59,7 +60,7 @@ const PromoBanner = ({ images }) => {
         <span><FaUndo /> Easy Returns</span>
       </div>
 
-      <div className="promo-ticker">
+      {/* <div className="promo-ticker">
         <div className="ticker-track">
           {[...Array(6)].map((_, i) => (
             <span key={i}>
@@ -67,7 +68,20 @@ const PromoBanner = ({ images }) => {
             </span>
           ))}
         </div>
+      </div> */}
+      <div className="promo-ticker">
+  <div className="ticker-track">
+    {[...Array(6)].map((_, i) => (
+      <div className="promo-feature-item" key={i}>
+        <TbTruckDelivery className="promo-icon" />
+        <div className="promo-text">
+          <span className="promo-title">Free Discreet Shipping</span>
+          <span className="promo-sub">on All Orders Over Rs5000.</span>
+        </div>
       </div>
+    ))}
+  </div>
+</div>
     </section>
   );
 };

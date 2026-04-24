@@ -1,5 +1,33 @@
+/* =============================================
+   MONAZZ — CategoryPage.css
+   Brand Colors:
+   Dark Plum  : #5A2A3A  (headings, borders, primary text)
+   Soft Mauve : #C4A0AE  (accents, midtones)
+   Brand Pink : #C9898A  (highlights, hover, active)
+   Light Pink : #F3D6DB  (backgrounds, strips)
+   Off White  : #FFF7F9  (page background)
+   ============================================= */
+
+/* ── CSS Variables ── */
+:root {
+  --clr-plum:       #5A2A3A;
+  --clr-mauve:      #C4A0AE;
+  --clr-pink:       #C9898A;
+  --clr-light-pink: #F3D6DB;
+  --clr-off-white:  #FFF7F9;
+  --clr-white:      #FFFFFF;
+  --clr-text:       #2E2E2E;
+  --clr-text-muted: #666666;
+}
+main {
+  background-color: var(--clr-off-white) !important;
+  min-height: 100vh;
+}
+
+/* ── Subcategory Section ── */
 .subcategory-section {
   padding: 2rem 1.5rem 1rem;
+  background-color: var(--clr-off-white);
 }
 
 .category-title {
@@ -7,14 +35,18 @@
   font-weight: 600;
   margin-bottom: 1.2rem;
   text-align: center;
+  color: var(--clr-plum);
 }
 
+/* ── Subcategory Grid ── */
 .subcategory-grid {
   display: grid;
+  background-color: var(--clr-off-white);
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 1rem;
 }
 
+/* ── Subcategory Card ── */
 .subcategory-card {
   position: relative;
   border-radius: 12px;
@@ -22,15 +54,17 @@
   cursor: pointer;
   border: 2px solid transparent;
   aspect-ratio: 4 / 3;
-  transition: border-color 0.2s, transform 0.2s;
+  transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
 }
 
 .subcategory-card:hover {
   transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(90, 42, 58, 0.15);
+  
 }
 
 /* .subcategory-card.active {
-  border-color: #b5577a; 
+  border-color: var(--clr-plum);
 } */
 
 .subcategory-card img {
@@ -44,16 +78,18 @@
   bottom: 0;
   left: 0;
   right: 0;
-  background: linear-gradient(transparent, rgba(0, 0, 0, 0.6));
-  color: white;
+  background: linear-gradient(transparent, rgba(90, 42, 58, 0.65));
+  color: var(--clr-white);
   padding: 1.5rem 1rem 0.75rem;
   font-size: 15px;
   font-weight: 500;
 }
 
 .subcategory-card.active .subcategory-label {
-  background: linear-gradient(transparent, rgba(153, 53, 86, 0.8));
+  background: linear-gradient(transparent, rgba(90, 42, 58, 0.85));
 }
+
+/* ── Category Hero ── */
 .category-hero {
   position: relative;
   width: 100%;
@@ -71,40 +107,192 @@
   position: absolute;
   bottom: 24px;
   left: 32px;
-  color: #ffffff;
+  color: var(--clr-white);
   font-size: 32px;
   font-weight: 500;
+  text-shadow: 0 2px 8px rgba(90, 42, 58, 0.4);
 }
 
+/* ── Category Products Area ── */
 .category-products {
   padding: 32px;
-  background-color: #fdf8f9;
+  background-color: var(--clr-off-white);
 }
+
+/* ── Products Grid ── */
 .products-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
 }
+
+/* ── Info Bar (count + sort) ── */
 .products-info-bar {
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin-bottom: 18px;
-  
+  font-size: 14px;
+  color: var(--clr-plum);
+  border-bottom: 1px solid var(--clr-light-pink);
+  padding-bottom: 12px;
 }
 
+.products-info-bar select,
+.products-info-bar .sort-dropdown {
+  border: 1px solid var(--clr-mauve);
+  border-radius: 20px;
+  padding: 4px 12px;
+  color: var(--clr-plum);
+  background: var(--clr-white);
+  cursor: pointer;
+  font-size: 13px;
+}
+
+/* ── No Products Message ── */
 .no-products {
   text-align: center;
-  color: #c4a0ae;
+  color: var(--clr-mauve);
   font-size: 15px;
   margin-top: 48px;
 }
-/* Large screen centering */
+
+/* ── Main Max-Width ── */
 main {
   max-width: 1400px;
   margin: 0 auto;
   width: 100%;
+  background-color: var(--clr-off-white);
 }
+
+/* ── Pagination ── */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  margin-top: 2rem;
+}
+
+.pg-btn {
+  min-width: 36px;
+  height: 34px;
+  padding: 0 12px;
+  border-radius: 6px;
+  border: 1.5px solid var(--clr-light-pink);
+  background: var(--clr-white);
+  color: var(--clr-plum);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.pg-btn:hover {
+  border-color: var(--clr-mauve);
+  background: var(--clr-light-pink);
+  color: var(--clr-plum);
+}
+
+.pg-btn.active {
+  background: var(--clr-plum);
+  color: var(--clr-white);
+  border-color: var(--clr-plum);
+}
+
+/* ── Back Button + Subcategory Header ── */
+.subcategory-header {
+  display: flex;
+  align-items: center;
+  position: relative;
+  gap: 16px;
+  padding: 20px 24px 8px;
+  background-color: var(--clr-off-white);
+}
+
+.subcategory-title {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.4rem; 
+  font-weight: 600;
+  text-align: center;
+  color: var(--clr-plum);
+  margin: 0;
+}
+
+.back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--clr-white);
+  border: 1.5px solid var(--clr-plum);
+  color: var(--clr-plum);
+  padding: 8px 18px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  white-space: nowrap;
+  letter-spacing: 0.3px;
+}
+
+.back-btn:hover {
+  background: var(--clr-plum);
+  color: var(--clr-white);
+}
+
+.back-btn.outline {
+  margin-top: 20px;
+}
+
+/* ── Coming Soon Section ── */
+.coming-soon-section {
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  background-color: var(--clr-off-white);
+}
+
+.coming-soon-content {
+  text-align: center;
+  max-width: 420px;
+}
+
+.coming-soon-icon {
+  font-size: 3.5rem;
+  display: block;
+  margin-bottom: 16px;
+}
+
+.coming-soon-content h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--clr-plum);
+  margin: 0 0 12px;
+  letter-spacing: -0.5px;
+}
+
+.coming-soon-content p {
+  font-size: 1rem;
+  color: var(--clr-text-muted);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.coming-soon-content strong {
+  color: var(--clr-plum);
+}
+
+/* =============================================
+   RESPONSIVE BREAKPOINTS
+   ============================================= */
 
 @media (max-width: 1024px) {
   .products-grid {
@@ -120,17 +308,14 @@ main {
   .category-hero {
     height: 200px;
   }
-
   .category-hero-title {
     font-size: 24px;
     left: 16px;
     bottom: 16px;
   }
-
   .category-products {
     padding: 16px 12px;
   }
-
   .products-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 12px;
@@ -186,5 +371,14 @@ main {
     width: 30px;
     height: 30px;
     font-size: 12px;
+  }
+  .subcategory-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 16px 16px 4px;
+  }
+  .subcategory-title {
+    font-size: 1.2rem;
   }
 }

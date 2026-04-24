@@ -4,33 +4,77 @@ import { productsData } from "../Data/productsData";
 import ReviewSection from "./ReviewSection";
 import "../styles/ProductDetailPage.css";
 
-/* ─── helpers ───────────────────────────────────────────── */
+/* ─── helpers ─────────────────────────────────────────────── */
 const Heart = () => (
-  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
     <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
   </svg>
 );
 
 const Star = ({ filled }) => (
-  <svg width="14" height="14" viewBox="0 0 24 24" fill={filled ? "#b5577a" : "none"} stroke="#b5577a" strokeWidth="1.5">
+  <svg width="13" height="13" viewBox="0 0 24 24" fill={filled ? "#b5577a" : "none"} stroke="#b5577a" strokeWidth="1.5">
     <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
   </svg>
 );
 
-const ProductCard = ({ product, onClick }) => (
-  <div className="pc-card" onClick={() => onClick(product.id)}>
-    <div className="pc-img-wrap">
-      <img src={product.images[0]} alt={product.name} className="pc-img" />
-      <div className="pc-overlay"><span>Quick View</span></div>
-    </div>
-    <div className="pc-info">
-      <p className="pc-name">{product.name}</p>
-      <p className="pc-price">Rs {product.price.toLocaleString()}</p>
-    </div>
-  </div>
-);
+/* Related / Recently Viewed card */
+const ProductCard = ({ product, onClick }) => {
+  const [currentImg, setCurrentImg] = useState(0);
+  const imgArray = product.images ?? [];
 
-/* ─── main ──────────────────────────────────────────────── */
+  useEffect(() => {
+    if (imgArray.length <= 1) return;
+    const interval = setInterval(() => {
+      setCurrentImg((prev) => (prev + 1) % imgArray.length);
+    }, 2000);
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <div className="pc-card" onClick={() => onClick(product.id)}>
+      <div className="pc-img-wrap">
+        <picture style={{ width: "100%", height: "100%", display: "block" }}>
+          <source
+            media="(max-width: 480px)"
+            srcSet={product.imageMobile?.[currentImg] ?? imgArray[currentImg]}
+          />
+          <img
+            src={imgArray[currentImg]}
+            alt={product.name}
+            className="pc-img"
+            loading="lazy"
+            width="800"
+            height="1000"
+            style={{
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+              objectPosition: "top center",
+              display: "block",
+            }}
+          />
+        </picture>
+        <div className="pc-overlay">View Product</div>
+        {imgArray.length > 1 && (
+          <div className="pc-dots">
+            {imgArray.map((_, i) => (
+              <span
+                key={i}
+                className={`pc-dot ${i === currentImg ? "pc-dot--active" : ""}`}
+              />
+            ))}
+          </div>
+        )}
+      </div>
+      <div className="pc-info">
+        <p className="pc-name">{product.name}</p>
+        <p className="pc-price">Rs {product.price.toLocaleString()}</p>
+      </div>
+    </div>
+  );
+};
+
+/* ─── main ────────────────────────────────────────────────── */
 const ProductDetailPage = ({ onAddToCart }) => {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -44,7 +88,28 @@ const ProductDetailPage = ({ onAddToCart }) => {
   const [sizeError, setSizeError] = useState(false);
   const [wishlisted, setWishlisted] = useState(false);
   const [addedAnim, setAddedAnim] = useState(false);
+  const [isPaused, setIsPaused] = useState(false);
 
+  /* reset state when product changes */
+  useEffect(() => {
+    setSelectedImage(0);
+    setSelectedSize(null);
+    setQuantity(1);
+    setSizeError(false);
+    setAddedAnim(false);
+    setIsPaused(false);
+  }, [id]);
+
+  /* ── AUTO SLIDE for main image ── */
+  useEffect(() => {
+    if (!product || product.images.length <= 1 || isPaused) return;
+    const interval = setInterval(() => {
+      setSelectedImage((prev) => (prev + 1) % product.images.length);
+    }, 2500);
+    return () => clearInterval(interval);
+  }, [product, isPaused]);
+
+  /* recently viewed */
   useEffect(() => {
     if (!product) return;
     const key = "recentlyViewed";
@@ -71,7 +136,7 @@ const ProductDetailPage = ({ onAddToCart }) => {
     setSizeError(false);
     onAddToCart({ ...product, selectedSize, quantity });
     setAddedAnim(true);
-    setTimeout(() => { setAddedAnim(false); navigate("/cart"); }, 600);
+    setTimeout(() => { setAddedAnim(false); navigate("/cart"); }, 700);
   };
 
   const handleQuantity = (type) => {
@@ -88,7 +153,7 @@ const ProductDetailPage = ({ onAddToCart }) => {
       <nav className="pdp-breadcrumb">
         <span onClick={() => navigate("/")}>Home</span>
         <span className="sep">›</span>
-        <span onClick={() => navigate(-1)}>{product.category || "Products"}</span>
+        <span onClick={() => navigate(-1)}>{product.category}</span>
         <span className="sep">›</span>
         <span className="current">{product.name}</span>
       </nav>
@@ -98,19 +163,8 @@ const ProductDetailPage = ({ onAddToCart }) => {
 
         {/* LEFT — gallery */}
         <div className="pdp-gallery">
-          <div className="pdp-thumbs">
-            {product.images.map((img, i) => (
-              <div
-                key={i}
-                className={`pdp-thumb ${selectedImage === i ? "active" : ""}`}
-                onClick={() => setSelectedImage(i)}
-              >
-                <img src={img} alt="" />
-              </div>
-            ))}
-          </div>
           <div className="pdp-main-img-wrap">
-            <span className="pdp-badge">NEW</span>
+            {product.isNew && <span className="pdp-badge">New</span>}
             <img
               key={selectedImage}
               src={product.images[selectedImage]}
@@ -118,6 +172,25 @@ const ProductDetailPage = ({ onAddToCart }) => {
               className="pdp-main-img"
             />
           </div>
+
+          {/* thumbnails — hover pe pause */}
+          {product.images.length > 1 && (
+            <div
+              className="pdp-thumbs"
+              onMouseEnter={() => setIsPaused(true)}
+              onMouseLeave={() => setIsPaused(false)}
+            >
+              {product.images.map((img, i) => (
+                <div
+                  key={i}
+                  className={`pdp-thumb ${selectedImage === i ? "active" : ""}`}
+                  onClick={() => setSelectedImage(i)}
+                >
+                  <img src={img} alt="" />
+                </div>
+              ))}
+            </div>
+          )}
         </div>
 
         {/* RIGHT — info */}
@@ -151,7 +224,7 @@ const ProductDetailPage = ({ onAddToCart }) => {
           <div className="pdp-row-label">
             <span>Select Size</span>
             <button className="pdp-size-chart-btn" onClick={() => setShowSizeChart(true)}>
-              View Size Chart
+              Size Guide
             </button>
           </div>
           <div className="pdp-sizes">
@@ -165,7 +238,7 @@ const ProductDetailPage = ({ onAddToCart }) => {
               </button>
             ))}
           </div>
-          {sizeError && <p className="pdp-size-error">⚠ Please select a size.</p>}
+          {sizeError && <p className="pdp-size-error">Please select a size to continue.</p>}
 
           {/* Quantity */}
           <div className="pdp-row-label pdp-qty-label">
@@ -183,7 +256,7 @@ const ProductDetailPage = ({ onAddToCart }) => {
               className={`pdp-add-btn ${addedAnim ? "added" : ""}`}
               onClick={handleAddToCart}
             >
-              {addedAnim ? "✓ Added!" : "🛒 Add to Cart"}
+              {addedAnim ? "✓ Added to Cart" : "Add to Cart"}
             </button>
             <button
               className={`pdp-wish-btn ${wishlisted ? "active" : ""}`}
@@ -204,38 +277,37 @@ const ProductDetailPage = ({ onAddToCart }) => {
         </div>
       </section>
 
-      {/* DESCRIPTION TABS */}
-      {/* DESCRIPTION TABS */}
-<section className="pdp-tabs">
-  <div className="pdp-tab-head">
-    <span
-      className={`pdp-tab ${activeTab === "description" ? "active" : ""}`}
-      onClick={() => setActiveTab("description")}
-    >
-      Description
-    </span>
-    <span
-      className={`pdp-tab ${activeTab === "reviews" ? "active" : ""}`}
-      onClick={() => setActiveTab("reviews")}
-    >
-      Reviews ({product.reviewCount || 0})
-    </span>
-  </div>
-  <div className="pdp-tab-body">
-    {activeTab === "description" ? (
-      <p>{product.fullDescription || product.description}</p>
-    ) : (
-      <ReviewSection product={product} />
-    )}
-  </div>
-</section>
+      {/* TABS */}
+      <section className="pdp-tabs">
+        <div className="pdp-tab-head">
+          <span
+            className={`pdp-tab ${activeTab === "description" ? "active" : ""}`}
+            onClick={() => setActiveTab("description")}
+          >
+            Description
+          </span>
+          <span
+            className={`pdp-tab ${activeTab === "reviews" ? "active" : ""}`}
+            onClick={() => setActiveTab("reviews")}
+          >
+            Reviews ({product.reviewCount || 0})
+          </span>
+        </div>
+        <div className="pdp-tab-body">
+          {activeTab === "description" ? (
+            <p>{product.fullDescription || product.description}</p>
+          ) : (
+            <ReviewSection product={product} />
+          )}
+        </div>
+      </section>
 
       {/* RELATED PRODUCTS */}
       {related.length > 0 && (
         <section className="pdp-section">
           <div className="pdp-section-head">
-            <h2>Related Products</h2>
-            <span className="pdp-see-all" onClick={() => navigate(-1)}>See All →</span>
+            <h2>You May Also Like</h2>
+            <span className="pdp-see-all" onClick={() => navigate(-1)}>View All →</span>
           </div>
           <div className="pdp-grid">
             {related.map((p) => (
@@ -264,7 +336,7 @@ const ProductDetailPage = ({ onAddToCart }) => {
         <div className="pdp-modal-overlay" onClick={() => setShowSizeChart(false)}>
           <div className="pdp-modal" onClick={(e) => e.stopPropagation()}>
             <div className="pdp-modal-head">
-              <h3>Size Chart</h3>
+              <h3>Size Guide</h3>
               <button onClick={() => setShowSizeChart(false)}>✕</button>
             </div>
             <table className="pdp-size-table">

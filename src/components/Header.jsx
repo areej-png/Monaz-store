@@ -51,7 +51,7 @@ const TopBar = () => {
         {/* LEFT */}
         <div className="top-left">
           <span>
-            <LeftIcon className="icon" />
+            <LeftIcon className="icon" /> 
             {left.text}
           </span>
         </div>

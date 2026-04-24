@@ -1,95 +1,117 @@
+/* ── PAGE ── */
 .search-results-page {
-  padding: 32px;
+  padding: 40px 32px;
   min-height: 60vh;
+  background: #FFF7F9; /* clean base */
 }
 
+/* ── HEADER ── */
 .search-results-header {
-  margin-bottom: 28px;
-  border-bottom: 1px solid #f0e0e8;
+  margin-bottom: 32px;
+  border-bottom: 1px solid #F3D6DB;
   padding-bottom: 16px;
 }
 
 .search-results-header h2 {
   font-size: 22px;
-  color: #5a3a44;
+  color: #5A2A3A;
   margin-bottom: 6px;
 }
 
 .search-results-header h2 span {
-  color: #b5577a;
+  color: #C9898A;
 }
 
 .search-results-header p {
   font-size: 14px;
-  color: #999;
+  color: #7A6A6F;
 }
 
+/* ── SECTION ── */
 .search-section {
   margin-bottom: 40px;
 }
 
 .search-section-title {
   font-size: 18px;
-  color: #5a3a44;
-  margin-bottom: 16px;
+  color: #5A2A3A;
+  margin-bottom: 18px;
   padding-bottom: 8px;
-  border-bottom: 2px solid #f0e0e8;
+  border-bottom: 2px solid #F3D6DB;
 }
 
+/* ── GRID ── */
 .products-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 24px;
 }
 
+/* ── CARD ── */
 .hit-result-card {
-  background: #fdf5f8;
-  border-radius: 10px;
+  background: #ffffff;
+  border-radius: 14px;
   overflow: hidden;
-  padding-bottom: 12px;
   cursor: pointer;
-  border: 1px solid #f0e0e8;
+  border: 1px solid #F3D6DB;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+/* Hover */
+.hit-result-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 25px rgba(90, 42, 58, 0.08);
+}
+
+/* ── IMAGE ── */
 .hit-result-card img {
   width: 100%;
-  height: 200px;
-  object-fit: cover;
+  height: 260px;
+  object-fit: contain; /* 🔥 FIXED */
+  background: #fff;
+  padding: 10px;
 }
 
+/* ── TEXT ── */
 .hit-result-name {
   font-size: 14px;
-  color: #5a3a44;
-  padding: 8px 12px 4px;
+  color: #2E2E2E;
+  padding: 10px 14px 4px;
   font-weight: 500;
 }
 
 .hit-result-price {
   font-size: 14px;
-  color: #b5577a;
-  padding: 0 12px;
+  color: #5A2A3A;
+  padding: 0 14px 12px;
   font-weight: 600;
 }
 
+/* ── NO RESULTS ── */
 .no-results {
   text-align: center;
-  padding: 60px 20px;
-  color: #999;
+  padding: 70px 20px;
+  color: #7A6A6F;
 }
 
 .no-results p:first-child {
   font-size: 18px;
-  color: #5a3a44;
+  color: #5A2A3A;
   margin-bottom: 8px;
 }
 
+/* ── MOBILE ── */
 @media (max-width: 768px) {
   .search-results-page {
-    padding: 20px 16px;
+    padding: 24px 16px;
   }
 
   .products-grid {
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 12px;
+    gap: 16px;
+  }
+
+  .hit-result-card img {
+    height: 200px;
   }
 }

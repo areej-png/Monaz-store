@@ -13,16 +13,16 @@
 //     ],
 // };
 export const navbarData = {
-    logo: "/images/logo.png",
+    logo: "/images/LOGO.svg",
     navLinks: [
         { id: 1, label: "New Arrivals", href: "/category/new-arrivals" },
         {
             id: 2, label: "PJ Sets", href: "/category/pj-sets",
             subLinks: [
-                { label: "Cotton PJ Sets", href: "/category/pj-sets/cotton" },
-                { label: "Satin PJ Sets", href: "/category/pj-sets/satin" },
+                { label: "Plain PJ Sets", href: "/category/pj-sets/plain" },
+                // { label: "Satin PJ Sets", href: "/category/pj-sets/satin" },
                 { label: "Printed PJ Sets", href: "/category/pj-sets/printed" },
-                { label: "Winter PJ Sets", href: "/category/pj-sets/winter" },
+                // { label: "Winter PJ Sets", href: "/category/pj-sets/winter" },
             ]
         },
         {

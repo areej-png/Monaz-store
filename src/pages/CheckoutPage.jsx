@@ -291,7 +291,7 @@ const CheckoutPage = ({ cartItems }) => {
           </div>
 
           {/* 2. Shipping Options */}
-          <div className="checkout-section">
+          {/* <div className="checkout-section">
             <h2 className="section-heading">
               <span className="icon">🚚</span> Shipping Method
             </h2>
@@ -319,7 +319,7 @@ const CheckoutPage = ({ cartItems }) => {
                 </div>
               ))}
             </div>
-          </div>
+          </div> */}
 
           {/* 3. Payment Method */}
           <div className="checkout-section">

@@ -1,9 +1,11 @@
+/* ─── WRAPPER ─── */
 .navbar-wrapper {
-  background-color: #ffffff;
+  background-color: #FFF7F9;
   border-bottom: 1px solid #f0e0e8;
   width: 100%;
 }
-/* TOP ROW */
+
+/* ─── TOP ROW ─── */
 .navbar-top {
   display: flex;
   align-items: center;
@@ -12,33 +14,34 @@
   position: relative;
 }
 
-/* LOGO */
+/* ─── LOGO ─── */
 .navbar-logo {
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 .navbar-logo img {
-  height: 52px;
+  height: 70px;
   width: auto;
   object-fit: contain;
   display: block;
 }
 
-/* RIGHT SIDE */
+/* ─── RIGHT SIDE ─── */
 .navbar-right {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 20px;
 }
 
-/* SEARCH BOX */
+/* ─── SEARCH BOX ─── */
 .search-box {
   display: flex;
   align-items: center;
   gap: 10px;
-  background-color: #fdf5f8;
-  border: 1.5px solid #e8c4d0;
+  background-color: #FFF7F9;
+  border: 1.5px solid #C4A0AE;
   border-radius: 25px;
   padding: 8px 18px;
   width: 280px;
@@ -46,21 +49,30 @@
 }
 
 .search-box:focus-within {
-  border-color: #b5577a;
+  border-color: #5A2A3A;
 }
 
 .search-icon {
-  color: #b5577a;
-  font-size: 14px;
+  color: #5A2A3A;
+  font-size: 20px;
   flex-shrink: 0;
   cursor: pointer;
 }
+.search-icon:hover {
+  color: #C9898A;
+}
+
 
 .search-clear {
-  color: #b5577a;
+  color: #5A2A3A;
   font-size: 12px;
   flex-shrink: 0;
   cursor: pointer;
+  display: none;
+}
+
+.search-box.search-open .search-clear {
+  display: block;
 }
 
 .search-input {
@@ -68,74 +80,76 @@
   outline: none;
   background: transparent;
   font-size: 14px;
-  color: #5a3a44;
+  color: #5A2A3A;
   width: 100%;
 }
 
 .search-input::placeholder {
-  color: #c4a0ae;
+  color: #C4A0AE;
 }
 
-/* CART */
+/* ─── ICONS — NO circle, sirf icon ─── */
 .navbar-cart-icon {
   position: relative;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
-  background-color: #fdf5f8;
-  border: 1.5px solid #e8c4d0;
-  transition: background-color 0.2s;
   flex-shrink: 0;
+  color: #5A2A3A;
+  transition: color 0.2s;
 }
 
 .navbar-cart-icon:hover {
-  background-color: #f5e0e8;
+  color: #C9898A;
 }
 
 .cart-icon {
-  font-size: 18px;
-  color: #b5577a;
+  font-size: 20px;
 }
 
 .cart-badge {
   position: absolute;
-  top: -4px;
-  right: -4px;
-  background-color: #b5577a;
+  top: -6px;
+  right: -6px;
+  background-color: #5A2A3A;
   color: #ffffff;
-  font-size: 10px;
+  font-size: 9px;
   font-weight: 700;
   border-radius: 50%;
-  width: 18px;
-  height: 18px;
+  width: 16px;
+  height: 16px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-/* HAMBURGER */
+/* ─── HAMBURGER ─── */
 .hamburger {
   display: none;
   background: none;
   border: none;
   font-size: 20px;
-  color: #b5577a;
+  color: #5A2A3A;
   cursor: pointer;
   padding: 4px;
 }
 
-/* NAV LINKS */
+/* ─── NAV LINKS ─── */
 .navbar-links {
   display: flex;
   align-items: center;
   gap: 4px;
   padding: 10px 32px;
-  border-top: 1px solid #f5eaee;
+  border-top: 1px solid #f0dde6;
   flex-wrap: wrap;
+}
+
+/* ─── NAV ITEM WRAPPER ─── */
+.nav-item-wrapper {
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
 }
 
 .nav-link {
@@ -143,25 +157,72 @@
   align-items: center;
   gap: 4px;
   font-size: 14px;
-  color: #5a3a44;
+  color: #2E2E2E;
   text-decoration: none;
-  padding: 6px 10px;
+  padding: 6px 12px;
   border-radius: 6px;
   white-space: nowrap;
   transition: background-color 0.2s, color 0.2s;
 }
 
 .nav-link:hover {
-  background-color: #fdf5f8;
-  color: #b5577a;
+  background-color: #F3D6DB;
+  color: #5A2A3A;
 }
 
+/* ─── CHEVRON ─── */
 .chevron {
   font-size: 10px;
-  color: #c4a0ae;
+  color: #C4A0AE;
+  transition: transform 0.2s;
 }
 
-/* ── TABLET 768px ── */
+.chevron-open {
+  transform: rotate(180deg);
+}
+
+/* ─── DROPDOWN ─── */
+.nav-dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #ffffff;
+  border: 1px solid #f0e0e8;
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(90, 42, 58, 0.1);
+  min-width: 190px;
+  z-index: 999;
+  padding: 6px 0;
+}
+
+@media (min-width: 769px) {
+  .nav-item-wrapper:hover .nav-dropdown {
+    display: block;
+  }
+  .nav-item-wrapper:hover .chevron {
+    transform: rotate(180deg);
+  }
+}
+
+.nav-dropdown-item {
+  display: block;
+  padding: 9px 16px;
+  font-size: 13.5px;
+  color: #5A2A3A;
+  text-decoration: none;
+  white-space: nowrap;
+  border-left: 3px solid transparent;
+  transition: background 0.15s, color 0.15s;
+}
+
+.nav-dropdown-item:hover {
+  background: #FFF7F9;
+  color: #5A2A3A;
+  border-left-color: #C9898A;
+}
+
+/* ─── TABLET 768px ─── */
 @media (max-width: 768px) {
   .navbar-top {
     padding: 12px 20px;
@@ -171,7 +232,6 @@
     display: flex;
   }
 
-  /* Logo center */
   .navbar-logo {
     position: absolute;
     left: 50%;
@@ -182,42 +242,43 @@
     height: 40px;
   }
 
-  /* Search — icon only, click se expand */
+  /* Mobile — default: sirf icon, koi box/border/circle nahi */
   .search-box {
-    width: 38px;
-    height: 38px;
+    width: auto;
+    height: auto;
     padding: 0;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    overflow: visible;
     justify-content: center;
-    border-radius: 50%;
-    overflow: hidden;
-    transition: width 0.3s ease, border-radius 0.3s ease, padding 0.3s ease;
+    transition: width 0.3s ease, border-color 0.3s ease, background 0.3s ease;
   }
 
-  /* Jab search open ho — expand ho jaye */
+  /* Click ke baad — box expand ho */
   .search-box.search-open {
     width: 200px;
+    background-color: #FFF7F9;
+    border: 1.5px solid #C4A0AE;
     border-radius: 25px;
-    padding: 0 12px;
+    padding: 6px 12px;
     justify-content: flex-start;
     gap: 8px;
-    overflow: visible;
   }
 
   .search-input {
-     width: 0;
+    width: 0;
     opacity: 0;
     pointer-events: none;
     transition: width 0.3s ease, opacity 0.3s ease;
   }
 
-  /* Jab search open ho — input dikhao */
   .search-box.search-open .search-input {
     width: 100%;
     opacity: 1;
     pointer-events: auto;
   }
 
-  /* Nav links */
   .navbar-links {
     display: none;
     flex-direction: column;
@@ -230,16 +291,42 @@
     display: flex;
   }
 
+  .nav-item-wrapper {
+    width: 100%;
+    flex-direction: column;
+  }
+
   .nav-link {
     width: 100%;
     font-size: 15px;
     padding: 10px 8px;
-    border-bottom: 1px solid #f5eaee;
+    border-bottom: 1px solid #f0dde6;
     border-radius: 0;
+  }
+
+  .nav-dropdown {
+    position: static;
+    box-shadow: none;
+    border: none;
+    border-left: 2px solid #F3D6DB;
+    border-radius: 0;
+    padding: 0;
+    margin-left: 12px;
+    display: none;
+  }
+
+  .nav-dropdown.mobile-dropdown-open {
+    display: block;
+  }
+
+  .nav-dropdown-item {
+    padding: 8px 12px;
+    font-size: 13px;
+    border-left: none;
   }
 }
 
-/* ── MOBILE 480px ── */
+/* ─── MOBILE 480px ─── */
 @media (max-width: 480px) {
   .navbar-top {
     padding: 10px 14px;
@@ -249,100 +336,7 @@
     height: 34px;
   }
 
-  /* Search expand thoda chota */
   .search-box.search-open {
     width: 160px;
-  }
-}
-/* Navbar.css mein add karein — media query ke BAHAR, global mein */
-.search-clear {
-  display: none;
-}
-
-.search-box.search-open .search-clear {
-  display: block;
-}
-/* NAV ITEM WRAPPER */
-.nav-item-wrapper {
-  position: relative;
-  display: inline-flex;
-  flex-direction: column;
-}
-
-/* DROPDOWN — desktop default hidden */
-.nav-dropdown {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background: #ffffff;
-  border: 1px solid #f0e0e8;
-  border-radius: 8px;
-  box-shadow: 0 8px 24px rgba(181, 87, 122, 0.12);
-  min-width: 190px;
-  z-index: 999;
-  padding: 6px 0;
-}
-
-/* Desktop hover se dikhao */
-@media (min-width: 769px) {
-  .nav-item-wrapper:hover .nav-dropdown {
-    display: block;
-  }
-}
-
-.nav-dropdown-item {
-  display: block;
-  padding: 9px 16px;
-  font-size: 13.5px;
-  color: #5a3a44;
-  text-decoration: none;
-  white-space: nowrap;
-  border-left: 3px solid transparent;
-  transition: background 0.15s, color 0.15s;
-}
-
-.nav-dropdown-item:hover {
-  background: #fdf5f8;
-  color: #b5577a;
-  border-left-color: #b5577a;
-}
-
-/* Chevron animation */
-.chevron {
-  transition: transform 0.2s;
-}
-.chevron-open {
-  transform: rotate(180deg);
-}
-
-/* MOBILE */
-@media (max-width: 768px) {
-  .nav-item-wrapper {
-    width: 100%;
-    flex-direction: column;
-  }
-
-  /* Mobile mein dropdown state se control hoga */
-  .nav-dropdown {
-    position: static;
-    box-shadow: none;
-    border: none;
-    border-left: 2px solid #f0e0e8;
-    border-radius: 0;
-    padding: 0;
-    margin-left: 12px;
-    display: none;
-  }
-
-  /* Jab mobile mein open ho */
-  .nav-dropdown.mobile-dropdown-open {
-    display: block;
-  }
-
-  .nav-dropdown-item {
-    padding: 8px 12px;
-    font-size: 13px;
-    border-left: none;
   }
 }
