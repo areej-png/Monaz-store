@@ -1,5 +1,5 @@
 // components/NightSuitFabricDetail.jsx
-import { FABRIC_TYPES, FABRIC_SEASON_CHART, FABRIC_TAGS } from "../Data/nsPageData";
+import { FABRIC_TYPES, FABRIC_SEASON_CHART, FABRIC_TAGS } from "../Data/nspageData";
 import { useLang } from "../hooks/useLang";
 import LangToggle from "./LangToggle";
 import "../styles/blogPage.css";

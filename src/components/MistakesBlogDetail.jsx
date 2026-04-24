@@ -1,10 +1,10 @@
-import MistakeDetailTemplate from "./MistakeDetailTemplate";
+import MistakeDetailTemplate from "./Mistakedetailtemplate";
 import {
   MISTAKES_POSTS,
   FIT_MISTAKES,        FIT_CHECKS_MISTAKES,    FIT_MISTAKES_TAGS,
   NIGHTWEAR_MISTAKES,  NIGHTWEAR_FIT_CHECKS,   NIGHTWEAR_MISTAKES_TAGS,
   CARE_MISTAKES,       CARE_FIT_CHECKS,        CARE_MISTAKES_TAGS,
-} from "../Data/mistakesPageData";
+} from "../Data/Mistakespagedata";
 
 export default function MistakesBlogDetail({ post, onBack, initialLang = "en" }) {
 
