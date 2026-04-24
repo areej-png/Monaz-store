@@ -7,7 +7,7 @@ import {
   PAYMENT_METHODS,
   VALID_COUPONS,
 } from "../Data/Checkoutdata"; 
-import "../styles/CheckoutPage.css";
+import "../styles/Checkoutpage.css";
 
 // ── Helpers ──────────────────────────────────────────────
 const generateOrderId = () =>

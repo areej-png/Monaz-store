@@ -1,5 +1,5 @@
 import { useParams, useNavigate, useLocation } from "react-router-dom";
-import { NIGHT_SUIT_POSTS } from "../Data/nsPageData";
+import { NIGHT_SUIT_POSTS } from "../Data/nspageData";
 import NightSuitBlogDetail from "../components/Nightsuitblogdetail";
 import "../styles/blogPage.css";
 

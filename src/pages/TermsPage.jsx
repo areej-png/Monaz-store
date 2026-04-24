@@ -1,6 +1,6 @@
 // pages/TermsPage.jsx
 import { useState } from "react";
-import { termsData } from "../Data/termsData";
+import { termsData } from "../Data/Termsdata";
 import "../styles/FAQPage.css";
 
 export default function TermsPage() {
