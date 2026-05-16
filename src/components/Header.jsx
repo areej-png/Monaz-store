@@ -1,89 +1,98 @@
-// import { FaPhone } from "react-icons/fa";
-// import { FaMoon } from "react-icons/fa";
-// import { FaFacebookF, FaInstagram, FaWhatsapp } from "react-icons/fa";
-// import "../styles/header.css";
-
-// const TopBar = () => {
-//   return (
-//     // TopBar
-//     <div className="top-bar">
-//       <div className="top-left">
-//         <span>
-//           <FaPhone className="phone-icon" />
-//            Discreet Help: +1-800-COMFORT</span>
-//       </div>
-
-//       <div className="top-center">
-//         <span>
-//           <FaMoon className="moon-icon" />Indulge in Comfy Nights:Sign Up for 20% Off your first order.</span>
-//         <a href="/signup">Sign up now</a>
-//       </div>
-
-//       <div className="top-right">
-//         <a href="https://facebook.com" target="_blank" rel="noreferrer" className="social-icon">
-//           <FaFacebookF />
-//         </a>
-//         <a href="https://www.instagram.com/dsoutfits_?igsh=ZGJndmxkMWkxejR4" target="_blank" rel="noreferrer" className="social-icon">
-//           <FaInstagram />
-//         </a>
-//         <a href="https://wa.me/123456789" target="_blank" rel="noreferrer" className="social-icon">
-//           <FaWhatsapp />
-//         </a>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default TopBar;
 import "../styles/header.css";
 import { topBarData } from "../Data/topbarData";
 
+if (!topBarData) {
+  console.error("TopBar: topBarData is undefined. Check your data import.");
+}
+
 const TopBar = () => {
+  if (!topBarData) return null;
+
   const { left, center, socialLinks } = topBarData;
 
-  const LeftIcon = left.icon;
-  const CenterIcon = center.icon;
+  if (!left || !center || !socialLinks) return null;
+
+  const LeftIcon = left?.icon ?? null;
+  const CenterIcon = center?.icon ?? null;
+
+  const isExternal = (url) =>
+    typeof url === "string" && url.startsWith("http");
 
   return (
-    <div className="top-bar">
+    <div
+      className="top-bar"
+      role="region"
+      aria-label="Top information bar"
+    >
       <div className="top-bar-inner">
 
         {/* LEFT */}
         <div className="top-left">
-          <span>
-            <LeftIcon className="icon" /> 
-            {left.text}
-          </span>
+          <div className="top-bar-item">
+            {LeftIcon && (
+              <LeftIcon
+                className="icon"
+                aria-hidden="true"
+                focusable="false"
+              />
+            )}
+            {left?.text && <span>{left.text}</span>}
+          </div>
         </div>
 
         {/* CENTER */}
         <div className="top-center">
-          <span>
-            <CenterIcon className="icon" />
-            {center.text}
-          </span>
+          <div className="top-bar-item">
+            {CenterIcon && (
+              <CenterIcon
+                className="icon"
+                aria-hidden="true"
+                focusable="false"
+              />
+            )}
+            {center?.text && <span>{center.text}</span>}
+          </div>
 
-          <a href={center.link}>{center.linkText}</a>
+          {center?.link && center?.linkText && (
+            <a
+              href={center.link}
+              className="top-bar-link"
+              rel="noopener noreferrer"
+              target={isExternal(center.link) ? "_blank" : undefined}
+              aria-label={
+                isExternal(center.link)
+                  ? `${center.linkText} (opens in new tab)`
+                  : center.linkText
+              }
+            >
+              {center.linkText}
+            </a>
+          )}
         </div>
 
-        {/* RIGHT SOCIAL LINKS */}
+        {/* RIGHT - SOCIAL LINKS */}
         <div className="top-right">
-          {socialLinks.map((item) => {
-            const Icon = item.icon;
+          {socialLinks?.length > 0 &&
+            socialLinks.map((item) => {
+              const Icon = item?.icon;
 
-            return (
-              <a
-                key={item.url}
-                href={item.url}
-                target="_blank"
-                rel="noreferrer"
-                className="social-icon"
-              >
-                <Icon />
-              </a>
-            );
-          })}
+              if (!Icon || !item?.url) return null;
+
+              return (
+                <a
+                  key={item.id ?? item.label ?? item.url}
+                  href={item.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="social-icon"
+                  aria-label={`Visit our ${item.label ?? "social media"} page (opens in new tab)`}
+                >
+                  <Icon aria-hidden="true" focusable="false" />
+                </a>
+              );
+            })}
         </div>
+
       </div>
     </div>
   );
