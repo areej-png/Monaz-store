@@ -1,123 +1,221 @@
-import { useState, useRef } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useState, useRef, useEffect, useCallback } from "react";
+import { NavLink, Link, useNavigate, useLocation } from "react-router-dom";
 import { FaSearch, FaShoppingCart, FaBars, FaTimes, FaChevronDown } from "react-icons/fa";
 import { navbarData } from "../Data/navbarData";
 import "../styles/navbar.css";
 
 const Navbar = ({ searchQuery, setSearchQuery, cartCount }) => {
-  const [menuOpen, setMenuOpen] = useState(false);
-  const [searchOpen, setSearchOpen] = useState(false);
+  const [menuOpen, setMenuOpen]       = useState(false);
+  const [searchOpen, setSearchOpen]   = useState(false);
   const [openDropdown, setOpenDropdown] = useState(null);
-  const navigate = useNavigate();
-  const inputRef = useRef(null);
+
+  const navigate  = useNavigate();
+  const location  = useLocation();
+  const inputRef  = useRef(null);
+  const navRef    = useRef(null);
+
   const { logo, navLinks } = navbarData;
 
-  const handleSearch = () => {
+  // Fix Reset searchOpen on route change 
+  useEffect(() => {
+    setSearchOpen(false);
+    setSearchQuery("");
+  }, [location.pathname, setSearchQuery]);
+
+  // Fix Focus input via useEffect, not setTimeout
+  useEffect(() => {
+    if (searchOpen) {
+      inputRef.current?.focus();
+    }
+  }, [searchOpen]);
+
+  // Fix Close dropdown on outside click
+  useEffect(() => {
+    const handleOutsideClick = (e) => {
+      if (navRef.current && !navRef.current.contains(e.target)) {
+        setOpenDropdown(null);
+      }
+    };
+    document.addEventListener("mousedown", handleOutsideClick);
+    return () => document.removeEventListener("mousedown", handleOutsideClick);
+  }, []);
+
+  // Handlers useCallback for performance
+  const handleSearch = useCallback(() => {
     if (searchQuery.trim() !== "") {
       navigate(`/search?q=${encodeURIComponent(searchQuery.trim())}`);
       setSearchOpen(false);
     }
-  };
+  }, [searchQuery, navigate]);
 
-  const handleKeyDown = (e) => {
-    if (e.key === "Enter") handleSearch();
-  };
+  const handleKeyDown = useCallback(
+    (e) => { if (e.key === "Enter") handleSearch(); },
+    [handleSearch]
+  );
+
+  const handleSearchIconClick = useCallback(() => {
+    if (searchOpen) handleSearch();
+    else setSearchOpen(true);
+  }, [searchOpen, handleSearch]);
+
+  const handleClearSearch = useCallback(() => {
+    setSearchQuery("");
+    setSearchOpen(false);
+  }, [setSearchQuery]);
+
+  // Fix Close menu resets dropdown too
+  const closeMenu = useCallback(() => {
+    setMenuOpen(false);
+    setOpenDropdown(null);
+  }, []);
+
+  const toggleDropdown = useCallback((id) => {
+    setOpenDropdown((prev) => (prev === id ? null : id));
+  }, []);
 
   return (
     <header className="navbar-wrapper">
       <div className="navbar-top">
-        <button className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>
-          {menuOpen ? <FaTimes /> : <FaBars />}
+
+        {/* Fix Accessible hamburger button */}
+        <button
+          className="hamburger"
+          onClick={() => {
+            // Fix #9: toggling off also resets dropdown
+            setMenuOpen((prev) => {
+              if (prev) setOpenDropdown(null);
+              return !prev;
+            });
+          }}
+          aria-label={menuOpen ? "Close menu" : "Open menu"}
+          aria-expanded={menuOpen}
+          aria-controls="main-nav"
+        >
+          {menuOpen ? <FaTimes aria-hidden="true" /> : <FaBars aria-hidden="true" />}
         </button>
 
+        {/* Fix #11: Logo links home + descriptive alt */}
         <div className="navbar-logo">
-          <img src={logo} alt="Logo" />
+          <Link to="/" aria-label="Go to homepage">
+            <img src={logo} alt="Brand logo" />
+          </Link>
         </div>
 
         <div className="navbar-right">
-          <div className={`search-box ${searchOpen ? "search-open" : ""}`}>
-            <FaSearch
-              className="search-icon"
-              onClick={() => {
-                if (searchOpen) handleSearch();
-                else {
-                  setSearchOpen(true);
-                  setTimeout(() => inputRef.current?.focus(), 50);
-                }
-              }}
-            />
+          <div
+            className={`search-box ${searchOpen ? "search-open" : ""}`}
+            role="search"
+          >
+            {/* Fix #7: Accessible search button */}
+            <button
+              className="search-icon-btn"
+              aria-label={searchOpen ? "Submit search" : "Open search"}
+              onClick={handleSearchIconClick}
+            >
+              <FaSearch className="search-icon" aria-hidden="true" />
+            </button>
+
             <input
               ref={inputRef}
-              type="text"
+              type="search"
               placeholder="Search for products..."
               className="search-input"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               onKeyDown={handleKeyDown}
+              aria-label="Search products"
             />
-            <FaTimes
-              className="search-clear"
-              onClick={() => { setSearchQuery(""); setSearchOpen(false); }}
-            />
+
+            {searchOpen && (
+              <button
+                className="search-clear-btn"
+                onClick={handleClearSearch}
+                aria-label="Clear search"
+              >
+                <FaTimes className="search-clear" aria-hidden="true" />
+              </button>
+            )}
           </div>
 
-          <div className="navbar-cart-icon" onClick={() => navigate("/cart")}>
-            <FaShoppingCart className="cart-icon" />
-            {cartCount > 0 && <span className="cart-badge">{cartCount}</span>}
-          </div>
+          {/* Fix #7: Accessible cart button */}
+          <button
+            className="navbar-cart-icon"
+            onClick={() => navigate("/cart")}
+            aria-label={`Shopping cart, ${cartCount} item${cartCount !== 1 ? "s" : ""}`}
+          >
+            <FaShoppingCart className="cart-icon" aria-hidden="true" />
+            {cartCount > 0 && (
+              <span className="cart-badge" aria-hidden="true">
+                {cartCount}
+              </span>
+            )}
+          </button>
         </div>
       </div>
 
-      {/* NAV LINKS */}
-      <nav className={`navbar-links ${menuOpen ? "mobile-open" : ""}`}>
+      {/* Fix NavLink for active styles, aria-label on nav */}
+      <nav
+        id="main-nav"
+        ref={navRef}
+        className={`navbar-links ${menuOpen ? "mobile-open" : ""}`}
+        aria-label="Main navigation"
+      >
         {navLinks.map((link) => (
-          <div key={link.id} className="nav-item-wrapper">
-
-            {/* Parent link — hamesha navigate kare */}
-            <Link
+          <div
+            key={link.id}                      // Fix ensure navbarData has unique ids
+            className="nav-item-wrapper"
+            // Fix hover handlers for desktop dropdown
+            onMouseEnter={() => link.subLinks && setOpenDropdown(link.id)}
+            onMouseLeave={() => link.subLinks && setOpenDropdown(null)}
+          >
+            {/* ── Fix NavLink gives active class automatically ── */}
+            <NavLink
               to={link.href}
-              className="nav-link"
-              onClick={() => {
-                setMenuOpen(false);
-                setOpenDropdown(null);
-              }}
+              className={({ isActive }) =>
+                `nav-link${isActive ? " nav-link--active" : ""}`
+              }
+              onClick={closeMenu}
+              end={link.href === "/"}          // exact match for home only
             >
               {link.label}
 
-              {/* Chevron — sirf dropdown toggle, navigate nahi */}
+              {/* ── Chevron: mobile toggle only, Fix ARIA ── */}
               {link.subLinks && (
-                <FaChevronDown
-                  className={`chevron ${openDropdown === link.id ? "chevron-open" : ""}`}
+                <button
+                  className={`chevron-btn ${openDropdown === link.id ? "chevron-open" : ""}`}
                   onClick={(e) => {
                     e.preventDefault();
                     e.stopPropagation();
-                    setOpenDropdown((prev) =>
-                      prev === link.id ? null : link.id
-                    );
+                    toggleDropdown(link.id);
                   }}
-                />
+                  aria-label={`${openDropdown === link.id ? "Close" : "Open"} ${link.label} submenu`}
+                  aria-expanded={openDropdown === link.id}
+                  aria-haspopup="true"
+                >
+                  <FaChevronDown aria-hidden="true" />
+                </button>
               )}
-            </Link>
+            </NavLink>
 
-            {/* Dropdown */}
+            {/* ── Dropdown ── */}
             {link.subLinks && (
               <div
-                className={`nav-dropdown ${
-                  openDropdown === link.id ? "mobile-dropdown-open" : ""
-                }`}
+                className={`nav-dropdown ${openDropdown === link.id ? "mobile-dropdown-open" : ""}`}
+                role="menu"
+                aria-label={`${link.label} submenu`}
               >
                 {link.subLinks.map((sub) => (
-                  <Link
-                    key={sub.label}
+                  <NavLink
+                    key={sub.href}             // Fix href is more reliable than label
                     to={sub.href}
-                    className="nav-dropdown-item"
-                    onClick={() => {
-                      setMenuOpen(false);
-                      setOpenDropdown(null);
-                    }}
+                    className={({ isActive }) =>
+                      `nav-dropdown-item${isActive ? " nav-dropdown-item--active" : ""}`
+                    }
+                    role="menuitem"
+                    onClick={closeMenu}
                   >
                     {sub.label}
-                  </Link>
+                  </NavLink>
                 ))}
               </div>
             )}
