@@ -21,6 +21,12 @@
   justify-content: center;
 }
 
+.navbar-logo a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .navbar-logo img {
   height: 70px;
   width: auto;
@@ -52,27 +58,44 @@
   border-color: #5A2A3A;
 }
 
-.search-icon {
-  color: #5A2A3A;
-  font-size: 20px;
-  flex-shrink: 0;
+/* ─── SEARCH ICON BUTTON (2nd version) ─── */
+.search-icon-btn {
+  background: none;
+  border: none;
   cursor: pointer;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  color: #5A2A3A;
+  flex-shrink: 0;
 }
-.search-icon:hover {
+
+.search-icon {
+  font-size: 20px;
+}
+
+.search-icon-btn:hover .search-icon {
   color: #C9898A;
 }
 
-
-.search-clear {
-  color: #5A2A3A;
-  font-size: 12px;
-  flex-shrink: 0;
+/* ─── SEARCH CLEAR BUTTON (2nd version) ─── */
+.search-clear-btn {
+  background: none;
+  border: none;
   cursor: pointer;
-  display: none;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  color: #5A2A3A;
+  flex-shrink: 0;
 }
 
-.search-box.search-open .search-clear {
-  display: block;
+.search-clear {
+  font-size: 12px;
+}
+
+.search-clear-btn:hover .search-clear {
+  color: #C9898A;
 }
 
 .search-input {
@@ -88,7 +111,7 @@
   color: #C4A0AE;
 }
 
-/* ─── ICONS — NO circle, sirf icon ─── */
+/* ─── CART BUTTON (2nd version - ab button hai) ─── */
 .navbar-cart-icon {
   position: relative;
   cursor: pointer;
@@ -97,6 +120,9 @@
   justify-content: center;
   flex-shrink: 0;
   color: #5A2A3A;
+  background: none;
+  border: none;
+  padding: 0;
   transition: color 0.2s;
 }
 
@@ -152,6 +178,7 @@
   flex-direction: column;
 }
 
+/* ─── NAV LINK ─── */
 .nav-link {
   display: flex;
   align-items: center;
@@ -170,14 +197,31 @@
   color: #5A2A3A;
 }
 
-/* ─── CHEVRON ─── */
-.chevron {
-  font-size: 10px;
+/* ─── ACTIVE LINK (2nd version) ─── */
+.nav-link--active {
+  background-color: #F3D6DB;
+  color: #5A2A3A;
+  font-weight: 600;
+}
+
+/* ─── CHEVRON BUTTON (2nd version - ab button hai) ─── */
+.chevron-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
   color: #C4A0AE;
+  margin-left: 2px;
+}
+
+.chevron-btn svg {
+  font-size: 10px;
   transition: transform 0.2s;
 }
 
-.chevron-open {
+.chevron-btn.chevron-open svg {
   transform: rotate(180deg);
 }
 
@@ -196,11 +240,12 @@
   padding: 6px 0;
 }
 
+/* ─── DESKTOP HOVER (2nd version) ─── */
 @media (min-width: 769px) {
   .nav-item-wrapper:hover .nav-dropdown {
     display: block;
   }
-  .nav-item-wrapper:hover .chevron {
+  .nav-item-wrapper:hover .chevron-btn svg {
     transform: rotate(180deg);
   }
 }
@@ -213,13 +258,21 @@
   text-decoration: none;
   white-space: nowrap;
   border-left: 3px solid transparent;
-  transition: background 0.15s, color 0.15s;
+  transition: background 0.15s, color 0.15s, border-left-color 0.15s;
 }
 
 .nav-dropdown-item:hover {
   background: #FFF7F9;
   color: #5A2A3A;
   border-left-color: #C9898A;
+}
+
+/* ─── ACTIVE DROPDOWN ITEM (2nd version) ─── */
+.nav-dropdown-item--active {
+  background: #FFF7F9;
+  color: #5A2A3A;
+  border-left-color: #C9898A;
+  font-weight: 600;
 }
 
 /* ─── TABLET 768px ─── */
@@ -302,6 +355,11 @@
     padding: 10px 8px;
     border-bottom: 1px solid #f0dde6;
     border-radius: 0;
+  }
+
+  /* Mobile mein chevron button visible */
+  .chevron-btn {
+    margin-left: auto;
   }
 
   .nav-dropdown {
