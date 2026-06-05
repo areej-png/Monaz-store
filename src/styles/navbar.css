@@ -58,7 +58,7 @@
   border-color: #5A2A3A;
 }
 
-/* ─── SEARCH ICON BUTTON (2nd version) ─── */
+/* ─── SEARCH ICON BUTTON ─── */
 .search-icon-btn {
   background: none;
   border: none;
@@ -78,7 +78,7 @@
   color: #C9898A;
 }
 
-/* ─── SEARCH CLEAR BUTTON (2nd version) ─── */
+/* ─── SEARCH CLEAR BUTTON ─── */
 .search-clear-btn {
   background: none;
   border: none;
@@ -111,7 +111,7 @@
   color: #C4A0AE;
 }
 
-/* ─── CART BUTTON (2nd version - ab button hai) ─── */
+/* ─── CART BUTTON ─── */
 .navbar-cart-icon {
   position: relative;
   cursor: pointer;
@@ -197,14 +197,14 @@
   color: #5A2A3A;
 }
 
-/* ─── ACTIVE LINK (2nd version) ─── */
+/* ─── ACTIVE LINK ─── */
 .nav-link--active {
   background-color: #F3D6DB;
   color: #5A2A3A;
   font-weight: 600;
 }
 
-/* ─── CHEVRON BUTTON (2nd version - ab button hai) ─── */
+/* ─── CHEVRON BUTTON ─── */
 .chevron-btn {
   background: none;
   border: none;
@@ -240,7 +240,7 @@
   padding: 6px 0;
 }
 
-/* ─── DESKTOP HOVER (2nd version) ─── */
+/* ─── DESKTOP HOVER ─── */
 @media (min-width: 769px) {
   .nav-item-wrapper:hover .nav-dropdown {
     display: block;
@@ -267,7 +267,7 @@
   border-left-color: #C9898A;
 }
 
-/* ─── ACTIVE DROPDOWN ITEM (2nd version) ─── */
+/* ─── ACTIVE DROPDOWN ITEM ─── */
 .nav-dropdown-item--active {
   background: #FFF7F9;
   color: #5A2A3A;
@@ -279,23 +279,33 @@
 @media (max-width: 768px) {
   .navbar-top {
     padding: 12px 20px;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    transition: grid-template-columns 0.3s ease;
   }
 
   .hamburger {
     display: flex;
+    justify-self: start;
   }
 
   .navbar-logo {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
+    position: static;
+    transform: none;
+    justify-self: center;
+    transition: opacity 0.2s ease, visibility 0.2s ease, width 0.2s ease;
   }
 
   .navbar-logo img {
     height: 40px;
   }
 
-  /* Mobile — default: sirf icon, koi box/border/circle nahi */
+  .navbar-right {
+    justify-self: end;
+  }
+
+  /* ─── DEFAULT: sirf icon, koi box nahi ─── */
   .search-box {
     width: auto;
     height: auto;
@@ -305,33 +315,47 @@
     border-radius: 0;
     overflow: visible;
     justify-content: center;
-    transition: width 0.3s ease, border-color 0.3s ease, background 0.3s ease;
-  }
-
-  /* Click ke baad — box expand ho */
-  .search-box.search-open {
-    width: 200px;
-    background-color: #FFF7F9;
-    border: 1.5px solid #C4A0AE;
-    border-radius: 25px;
-    padding: 6px 12px;
-    justify-content: flex-start;
-    gap: 8px;
   }
 
   .search-input {
     width: 0;
     opacity: 0;
     pointer-events: none;
-    transition: width 0.3s ease, opacity 0.3s ease;
+    transition: opacity 0.2s ease;
   }
 
-  .search-box.search-open .search-input {
+  /* ─── SEARCH ACTIVE: logo hide, full width search ─── */
+  .navbar-top.search-active {
+    grid-template-columns: auto 1fr auto;
+  }
+
+  .navbar-top.search-active .navbar-logo {
+    opacity: 0;
+    visibility: hidden;
+    width: 0;
+    overflow: hidden;
+  }
+
+  .navbar-top.search-active .navbar-right {
+    width: 100%;
+  }
+
+  .navbar-top.search-active .search-box {
+    width: 100%;
+    background-color: #FFF7F9;
+    border: 1.5px solid #C4A0AE;
+    border-radius: 25px;
+    padding: 6px 12px;
+    gap: 8px;
+  }
+
+  .navbar-top.search-active .search-input {
     width: 100%;
     opacity: 1;
     pointer-events: auto;
   }
 
+  /* ─── NAV LINKS MOBILE ─── */
   .navbar-links {
     display: none;
     flex-direction: column;
@@ -357,7 +381,6 @@
     border-radius: 0;
   }
 
-  /* Mobile mein chevron button visible */
   .chevron-btn {
     margin-left: auto;
   }
@@ -393,8 +416,20 @@
   .navbar-logo img {
     height: 34px;
   }
+}
 
-  .search-box.search-open {
-    width: 160px;
+/* ─── LARGE SCREENS 1440px+ ─── */
+@media (min-width: 1440px) {
+  .navbar-logo img {
+    height: 80px;
+  }
+}
+
+/* ─── PREFERS REDUCED MOTION ─── */
+@media (prefers-reduced-motion: reduce) {
+  .navbar-logo,
+  .search-box,
+  .search-input {
+    transition: none;
   }
 }
