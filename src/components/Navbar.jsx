@@ -5,8 +5,8 @@ import { navbarData } from "../Data/navbarData";
 import "../styles/navbar.css";
 
 const Navbar = ({ searchQuery, setSearchQuery, cartCount }) => {
-  const [menuOpen, setMenuOpen]       = useState(false);
-  const [searchOpen, setSearchOpen]   = useState(false);
+  const [menuOpen, setMenuOpen]         = useState(false);
+  const [searchOpen, setSearchOpen]     = useState(false);
   const [openDropdown, setOpenDropdown] = useState(null);
 
   const navigate  = useNavigate();
@@ -16,20 +16,20 @@ const Navbar = ({ searchQuery, setSearchQuery, cartCount }) => {
 
   const { logo, navLinks } = navbarData;
 
-  // Fix Reset searchOpen on route change 
+  // Reset search on route change
   useEffect(() => {
     setSearchOpen(false);
     setSearchQuery("");
   }, [location.pathname, setSearchQuery]);
 
-  // Fix Focus input via useEffect, not setTimeout
+  // Focus input when search opens
   useEffect(() => {
     if (searchOpen) {
       inputRef.current?.focus();
     }
   }, [searchOpen]);
 
-  // Fix Close dropdown on outside click
+  // Close dropdown on outside click
   useEffect(() => {
     const handleOutsideClick = (e) => {
       if (navRef.current && !navRef.current.contains(e.target)) {
@@ -40,7 +40,6 @@ const Navbar = ({ searchQuery, setSearchQuery, cartCount }) => {
     return () => document.removeEventListener("mousedown", handleOutsideClick);
   }, []);
 
-  // Handlers useCallback for performance
   const handleSearch = useCallback(() => {
     if (searchQuery.trim() !== "") {
       navigate(`/search?q=${encodeURIComponent(searchQuery.trim())}`);
@@ -54,8 +53,11 @@ const Navbar = ({ searchQuery, setSearchQuery, cartCount }) => {
   );
 
   const handleSearchIconClick = useCallback(() => {
-    if (searchOpen) handleSearch();
-    else setSearchOpen(true);
+    if (searchOpen) {
+      handleSearch();
+    } else {
+      setSearchOpen(true);
+    }
   }, [searchOpen, handleSearch]);
 
   const handleClearSearch = useCallback(() => {
@@ -63,7 +65,6 @@ const Navbar = ({ searchQuery, setSearchQuery, cartCount }) => {
     setSearchOpen(false);
   }, [setSearchQuery]);
 
-  // Fix Close menu resets dropdown too
   const closeMenu = useCallback(() => {
     setMenuOpen(false);
     setOpenDropdown(null);
@@ -75,13 +76,13 @@ const Navbar = ({ searchQuery, setSearchQuery, cartCount }) => {
 
   return (
     <header className="navbar-wrapper">
-      <div className="navbar-top">
+      {/* search-active class add/remove hoti hai searchOpen se */}
+      <div className={`navbar-top ${searchOpen ? "search-active" : ""}`}>
 
-        {/* Fix Accessible hamburger button */}
+        {/* Hamburger */}
         <button
           className="hamburger"
           onClick={() => {
-            // Fix #9: toggling off also resets dropdown
             setMenuOpen((prev) => {
               if (prev) setOpenDropdown(null);
               return !prev;
@@ -94,19 +95,19 @@ const Navbar = ({ searchQuery, setSearchQuery, cartCount }) => {
           {menuOpen ? <FaTimes aria-hidden="true" /> : <FaBars aria-hidden="true" />}
         </button>
 
-        {/* Fix #11: Logo links home + descriptive alt */}
+        {/* Logo — search open hone par hide ho jata hai */}
         <div className="navbar-logo">
           <Link to="/" aria-label="Go to homepage">
             <img src={logo} alt="Brand logo" />
           </Link>
         </div>
 
+        {/* Right Side */}
         <div className="navbar-right">
           <div
             className={`search-box ${searchOpen ? "search-open" : ""}`}
             role="search"
           >
-            {/* Fix #7: Accessible search button */}
             <button
               className="search-icon-btn"
               aria-label={searchOpen ? "Submit search" : "Open search"}
@@ -137,7 +138,7 @@ const Navbar = ({ searchQuery, setSearchQuery, cartCount }) => {
             )}
           </div>
 
-          {/* Fix #7: Accessible cart button */}
+          {/* Cart */}
           <button
             className="navbar-cart-icon"
             onClick={() => navigate("/cart")}
@@ -153,7 +154,7 @@ const Navbar = ({ searchQuery, setSearchQuery, cartCount }) => {
         </div>
       </div>
 
-      {/* Fix NavLink for active styles, aria-label on nav */}
+      {/* Nav Links */}
       <nav
         id="main-nav"
         ref={navRef}
@@ -162,24 +163,21 @@ const Navbar = ({ searchQuery, setSearchQuery, cartCount }) => {
       >
         {navLinks.map((link) => (
           <div
-            key={link.id}                      // Fix ensure navbarData has unique ids
+            key={link.id}
             className="nav-item-wrapper"
-            // Fix hover handlers for desktop dropdown
             onMouseEnter={() => link.subLinks && setOpenDropdown(link.id)}
             onMouseLeave={() => link.subLinks && setOpenDropdown(null)}
           >
-            {/* ── Fix NavLink gives active class automatically ── */}
             <NavLink
               to={link.href}
               className={({ isActive }) =>
                 `nav-link${isActive ? " nav-link--active" : ""}`
               }
               onClick={closeMenu}
-              end={link.href === "/"}          // exact match for home only
+              end={link.href === "/"}
             >
               {link.label}
 
-              {/* ── Chevron: mobile toggle only, Fix ARIA ── */}
               {link.subLinks && (
                 <button
                   className={`chevron-btn ${openDropdown === link.id ? "chevron-open" : ""}`}
@@ -197,7 +195,6 @@ const Navbar = ({ searchQuery, setSearchQuery, cartCount }) => {
               )}
             </NavLink>
 
-            {/* ── Dropdown ── */}
             {link.subLinks && (
               <div
                 className={`nav-dropdown ${openDropdown === link.id ? "mobile-dropdown-open" : ""}`}
@@ -206,7 +203,7 @@ const Navbar = ({ searchQuery, setSearchQuery, cartCount }) => {
               >
                 {link.subLinks.map((sub) => (
                   <NavLink
-                    key={sub.href}             // Fix href is more reliable than label
+                    key={sub.href}
                     to={sub.href}
                     className={({ isActive }) =>
                       `nav-dropdown-item${isActive ? " nav-dropdown-item--active" : ""}`
