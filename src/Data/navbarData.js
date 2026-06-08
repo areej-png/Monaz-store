@@ -1,77 +1,62 @@
-// export const navbarData = {
-//     logo: "/images/logo.png",
-//     navLinks: [
-//         { id: 1, label: "New Arrivals", href: "/category/new-arrivals" },
-//         { id: 2, label: "PJ Sets", href: "/category/pj-sets" },
-//         { id: 3, label: "Bras", href: "/category/bras" },
-//         { id: 4, label: "Panties", href: "/category/panties" },
-//         { id: 5, label: "Bra Panty Sets", href: "/category/bra-panty-sets" },
-//         { id: 6, label: "Body Shapers", href: "/category/body-shapers" },
-//         { id: 7, label: "Lingerie", href: "/category/lingerie" },
-//         { id: 9, label: "Tops", href: "/category/tops" },
-//         { id: 10, label: "Bottoms", href: "/category/bottoms" },
-//     ],
-// };
 export const navbarData = {
     logo: "/images/LOGO.svg",
     navLinks: [
+        { id: 1, label: "Home", href: "/" },
         { id: 1, label: "New Arrivals", href: "/category/new-arrivals" },
         {
-            id: 2, label: "PJ Sets", href: "/category/pj-sets",
+            id: 2, label: "Co-ord Sets", href: "/category/co-ord-sets",
             subLinks: [
-                { label: "Plain PJ Sets", href: "/category/pj-sets/plain" },
-                // { label: "Satin PJ Sets", href: "/category/pj-sets/satin" },
-                { label: "Printed PJ Sets", href: "/category/pj-sets/printed" },
-                // { label: "Winter PJ Sets", href: "/category/pj-sets/winter" },
+                { label: "Plain Co-ord Sets", href: "/category/co-ord-sets/plain" },
+                { label: "Printed Co-ord Sets", href: "/category/co-ord-sets/printed" },
             ]
         },
         {
-            id: 3, label: "Bras", href: "/category/bras",
+            id: 3, label: "Tops", href: "/category/tops",
             subLinks: [
-                { label: "Push-Up Bras", href: "/category/bras/push-up" },
-                { label: "T-Shirt Bras", href: "/category/bras/t-shirt" },
-                { label: "Sports Bras", href: "/category/bras/sports" },
-                { label: "Wireless Bras", href: "/category/bras/wireless" },
-                { label: "Strapless Bras", href: "/category/bras/strapless" },
+                { label: "Crop Tops", href: "/category/tops/crop" },
+                { label: "T-Shirts", href: "/category/tops/t-shirts" },
+                { label: "Shirts", href: "/category/tops/shirts" },
+                { label: "Tank Tops", href: "/category/tops/tank" },
+                { label: "Blouses", href: "/category/tops/blouses" },
             ]
         },
         {
-            id: 4, label: "Panties", href: "/category/panties",
+            id: 4, label: "Bottoms", href: "/category/bottoms",
             subLinks: [
-                { label: "Briefs", href: "/category/panties/briefs" },
-                { label: "Thongs", href: "/category/panties/thongs" },
-                { label: "Boyshorts", href: "/category/panties/boyshorts" },
-                { label: "High Waist", href: "/category/panties/high-waist" },
-                { label: "Bikini", href: "/category/panties/bikini" },
+                { label: "Trousers", href: "/category/bottoms/trousers" },
+                { label: "Shorts", href: "/category/bottoms/shorts" },
+                { label: "Skirts", href: "/category/bottoms/skirts" },
+                { label: "Palazzo", href: "/category/bottoms/palazzo" },
+                { label: "Joggers", href: "/category/bottoms/joggers" },
             ]
         },
         {
-            id: 5, label: "Bra Panty Sets", href: "/category/bra-panty-sets",
+            id: 5, label: "Dresses", href: "/category/dresses",
             subLinks: [
-                { label: "Lace Sets", href: "/category/bra-panty-sets/lace" },
-                { label: "Cotton Sets", href: "/category/bra-panty-sets/cotton" },
-                { label: "Satin Sets", href: "/category/bra-panty-sets/satin" },
-                { label: "Bridal Sets", href: "/category/bra-panty-sets/bridal" },
+                { label: "Maxi Dresses", href: "/category/dresses/maxi" },
+                { label: "Mini Dresses", href: "/category/dresses/mini" },
+                { label: "Midi Dresses", href: "/category/dresses/midi" },
+                { label: "Party Wear", href: "/category/dresses/party" },
             ]
         },
         {
-            id: 6, label: "Body Shapers", href: "/category/body-shapers",
+            id: 6, label: "Outerwear", href: "/category/outerwear",
             subLinks: [
-                { label: "Waist Cinchers", href: "/category/body-shapers/waist" },
-                { label: "Full Body", href: "/category/body-shapers/full-body" },
-                { label: "Shorts", href: "/category/body-shapers/shorts" },
+                { label: "Jackets", href: "/category/outerwear/jackets" },
+                { label: "Coats", href: "/category/outerwear/coats" },
+                { label: "Hoodies", href: "/category/outerwear/hoodies" },
             ]
         },
         {
-            id: 7, label: "Lingerie", href: "/category/lingerie",
+            id: 7, label: "Activewear", href: "/category/activewear",
             subLinks: [
-                { label: "Babydolls", href: "/category/lingerie/babydolls" },
-                { label: "Teddies", href: "/category/lingerie/teddies" },
-                { label: "Corsets", href: "/category/lingerie/corsets" },
-                { label: "Garter Sets", href: "/category/lingerie/garter-sets" },
+                { label: "Sports Tops", href: "/category/activewear/tops" },
+                { label: "Leggings", href: "/category/activewear/leggings" },
+                { label: "Track Suits", href: "/category/activewear/tracksuits" },
+                { label: "Gym Wear", href: "/category/activewear/gym" },
             ]
         },
-        { id: 9, label: "Tops", href: "/category/tops" },
-        { id: 10, label: "Bottoms", href: "/category/bottoms" },
+        { id: 8, label: "Accessories", href: "/category/accessories" },
+        { id: 9, label: "Sale", href: "/category/sale" },
     ],
 };
