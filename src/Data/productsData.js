@@ -1,14 +1,14 @@
 export const productsData = [
-// 1. NEW ARRIVALS
+  // 1. NEW ARRIVALS
   {
     id: 101,
-    name: "Floral Lace Nighty",
+    name: "Floral Printed Dress",
     price: 2499,
     category: "new-arrivals",
     subCategory: "",
     images: ["/images/products/1.jpg"],
     imageMobile: ["/images/products/mob.jpg"],
-    description: "Beautiful floral lace nighty, perfect for warm nights.",
+    description: "Beautiful floral printed dress, perfect for casual outings.",
     sizes: ["S", "M", "L", "XL"],
     sizeChart: {
       headers: ["Size", "Chest (inches)", "Waist (inches)"],
@@ -17,13 +17,13 @@ export const productsData = [
   },
   {
     id: 102,
-    name: "Satin Sleep Set",
+    name: "Satin Co-ord Set",
     price: 3299,
     category: "new-arrivals",
     subCategory: "",
     images: ["/images/products/2.jpg"],
     imageMobile: ["/images/products/mob2.jpg"],
-    description: "Luxurious satin sleep set with matching shorts.",
+    description: "Luxurious satin co-ord set with matching trousers.",
     sizes: ["S", "M", "L", "XL"],
     sizeChart: {
       headers: ["Size", "Chest (inches)", "Waist (inches)"],
@@ -32,13 +32,13 @@ export const productsData = [
   },
   {
     id: 103,
-    name: "Cotton Lounge Set",
+    name: "Cotton Casual Set",
     price: 1899,
     category: "new-arrivals",
     subCategory: "",
     images: ["/images/products/3.jpg"],
     imageMobile: ["/images/products/mob3.jpg"],
-    description: "Soft cotton lounge set, great for everyday wear.",
+    description: "Soft cotton casual set, great for everyday wear.",
     sizes: ["S", "M", "L", "XL", "XXL"],
     sizeChart: {
       headers: ["Size", "Chest (inches)", "Waist (inches)"],
@@ -46,18 +46,16 @@ export const productsData = [
     },
   },
 
-  // ─────────────────────────────────────────
-  // 2. PJ SETS → Plain PJ Sets
-  // ─────────────────────────────────────────
+  // 2. CO-ORD SETS → Plain Co-ord Sets
   {
     id: 201,
-    name: "Classic Plain PJ Set",
+    name: "Classic Plain Co-ord Set",
     price: 2999,
-    category: "pj-sets",
-    subCategory: "Plain PJ Sets",
+    category: "co-ord-sets",
+    subCategory: "Plain Co-ord Sets",
     images: ["/images/products/1.jpg"],
     imageMobile: ["/images/products/mob.jpg"],
-    description: "Soft plain cotton PJ set for everyday comfort.",
+    description: "Soft plain cotton co-ord set for everyday comfort.",
     sizes: ["S", "M", "L", "XL", "XXL"],
     sizeChart: {
       headers: ["Size", "Chest (inches)", "Waist (inches)", "Hip (inches)"],
@@ -66,44 +64,28 @@ export const productsData = [
   },
   {
     id: 207,
-    name: "Silk Night Dress",
+    name: "Linen Plain Co-ord Set",
     price: 2999,
-    category: "pj-sets",
-    subCategory: "Plain PJ Sets",
-    images: [
-      "/images/products/1.jpg",
-       "/images/products/2.jpg",
-      "/images/products/3.jpg",
-       "/images/products/5.jpg",
-    ],
-    imageMobile: [
-    "/images/products/mob.jpg",
-    "/images/products/mob2.jpg",
-    "/images/products/mob3.jpg",
-    "/images/products/mob5.jpg",
-  ],
-    description: "Luxuriously soft silk night dress perfect for a comfortable night's sleep. Features a relaxed fit with delicate lace trim.",
+    category: "co-ord-sets",
+    subCategory: "Plain Co-ord Sets",
+    images: ["/images/products/1.jpg", "/images/products/2.jpg", "/images/products/3.jpg", "/images/products/5.jpg"],
+    imageMobile: ["/images/products/mob.jpg", "/images/products/mob2.jpg", "/images/products/mob3.jpg", "/images/products/mob5.jpg"],
+    description: "Breathable linen co-ord set perfect for summer days. Features a relaxed fit with minimal detailing.",
     sizes: ["S", "M", "L", "XL", "XXL"],
     sizeChart: {
       headers: ["Size", "Chest (inches)", "Waist (inches)", "Hip (inches)"],
-      rows: [
-        ["S", "34", "28", "36"],
-        ["M", "36", "30", "38"],
-        ["L", "38", "32", "40"],
-        ["XL", "40", "34", "42"],
-        ["XXL", "42", "36", "44"],
-      ],
+      rows: [["S", "34", "28", "36"], ["M", "36", "30", "38"], ["L", "38", "32", "40"], ["XL", "40", "34", "42"], ["XXL", "42", "36", "44"]],
     },
   },
   {
     id: 202,
-    name: "Pastel Plain Night Set",
+    name: "Pastel Plain Co-ord Set",
     price: 2799,
-    category: "pj-sets",
-    subCategory: "Plain PJ Sets",
+    category: "co-ord-sets",
+    subCategory: "Plain Co-ord Sets",
     images: ["/images/products/2.jpg"],
     imageMobile: ["/images/products/mob2.jpg"],
-    description: "Light pastel plain PJ set, breathable and comfortable.",
+    description: "Light pastel plain co-ord set, breathable and comfortable.",
     sizes: ["S", "M", "L", "XL"],
     sizeChart: {
       headers: ["Size", "Chest (inches)", "Waist (inches)", "Hip (inches)"],
@@ -112,13 +94,13 @@ export const productsData = [
   },
   {
     id: 203,
-    name: "Silk Plain PJ Set",
+    name: "Silk Plain Co-ord Set",
     price: 3499,
-    category: "pj-sets",
-    subCategory: "Plain PJ Sets",
+    category: "co-ord-sets",
+    subCategory: "Plain Co-ord Sets",
     images: ["/images/products/3.jpg"],
     imageMobile: ["/images/products/mob3.jpg"],
-    description: "Luxurious silk plain PJ set for a smooth night's sleep.",
+    description: "Luxurious silk plain co-ord set for a smooth elegant look.",
     sizes: ["S", "M", "L", "XL"],
     sizeChart: {
       headers: ["Size", "Chest (inches)", "Waist (inches)", "Hip (inches)"],
@@ -126,18 +108,16 @@ export const productsData = [
     },
   },
 
-  // ─────────────────────────────────────────
-  // 2. PJ SETS → Printed PJ Sets
-  // ─────────────────────────────────────────
+  // 2. CO-ORD SETS → Printed Co-ord Sets
   {
     id: 204,
-    name: "Floral Printed PJ Set",
+    name: "Floral Printed Co-ord Set",
     price: 3199,
-    category: "pj-sets",
-    subCategory: "Printed PJ Sets",
+    category: "co-ord-sets",
+    subCategory: "Printed Co-ord Sets",
     images: ["/images/products/5.jpg"],
     imageMobile: ["/images/products/mob5.jpg"],
-    description: "Cute floral printed PJ set with relaxed fit.",
+    description: "Cute floral printed co-ord set with relaxed fit.",
     sizes: ["S", "M", "L", "XL"],
     sizeChart: {
       headers: ["Size", "Chest (inches)", "Waist (inches)", "Hip (inches)"],
@@ -146,13 +126,13 @@ export const productsData = [
   },
   {
     id: 205,
-    name: "Polka Dot PJ Set",
+    name: "Polka Dot Co-ord Set",
     price: 2899,
-    category: "pj-sets",
-    subCategory: "Printed PJ Sets",
+    category: "co-ord-sets",
+    subCategory: "Printed Co-ord Sets",
     images: ["/images/products/1.jpg"],
     imageMobile: ["/images/products/mob.jpg"],
-    description: "Fun polka dot printed PJ set in soft cotton.",
+    description: "Fun polka dot printed co-ord set in soft cotton.",
     sizes: ["S", "M", "L", "XL", "XXL"],
     sizeChart: {
       headers: ["Size", "Chest (inches)", "Waist (inches)", "Hip (inches)"],
@@ -161,13 +141,13 @@ export const productsData = [
   },
   {
     id: 206,
-    name: "Geometric Print Night Set",
+    name: "Geometric Print Co-ord Set",
     price: 3099,
-    category: "pj-sets",
-    subCategory: "Printed PJ Sets",
+    category: "co-ord-sets",
+    subCategory: "Printed Co-ord Sets",
     images: ["/images/products/2.jpg"],
     imageMobile: ["/images/products/mob2.jpg"],
-    description: "Modern geometric printed PJ set with button-down top.",
+    description: "Modern geometric printed co-ord set with button-down top.",
     sizes: ["S", "M", "L", "XL"],
     sizeChart: {
       headers: ["Size", "Chest (inches)", "Waist (inches)", "Hip (inches)"],
@@ -175,192 +155,178 @@ export const productsData = [
     },
   },
 
-  // ─────────────────────────────────────────
-  // 3. BRAS → Push-Up Bras
-  // ─────────────────────────────────────────
+  // 3. TOPS → Crop Tops
   {
     id: 301,
-    name: "Classic Push-Up Bra",
+    name: "Classic Crop Top",
     price: 1599,
-    category: "bras",
-    subCategory: "Push-Up Bras",
+    category: "tops",
+    subCategory: "Crop Tops",
     images: ["/images/products/1.jpg"],
     imageMobile: ["/images/products/mob.jpg"],
-    description: "Classic push-up bra with foam padding for extra lift.",
-    sizes: ["32B", "34B", "34C", "36B", "36C"],
+    description: "Classic crop top with clean cut for a stylish look.",
+    sizes: ["S", "M", "L", "XL"],
     sizeChart: {
-      headers: ["Size", "Band (inches)", "Cup"],
-      rows: [["32B", "28-30", "B"], ["34B", "30-32", "B"], ["34C", "30-32", "C"], ["36B", "32-34", "B"], ["36C", "32-34", "C"]],
+      headers: ["Size", "Chest (inches)", "Length (inches)"],
+      rows: [["S", "34", "16"], ["M", "36", "17"], ["L", "38", "18"], ["XL", "40", "19"]],
     },
   },
   {
     id: 302,
-    name: "Lace Push-Up Bra",
+    name: "Lace Detail Crop Top",
     price: 1799,
-    category: "bras",
-    subCategory: "Push-Up Bras",
+    category: "tops",
+    subCategory: "Crop Tops",
     images: ["/images/products/2.jpg"],
     imageMobile: ["/images/products/mob2.jpg"],
-    description: "Elegant lace push-up bra with underwire support.",
-    sizes: ["32B", "34B", "34C", "36C"],
+    description: "Elegant crop top with lace detail at hem.",
+    sizes: ["S", "M", "L", "XL"],
     sizeChart: {
-      headers: ["Size", "Band (inches)", "Cup"],
-      rows: [["32B", "28-30", "B"], ["34B", "30-32", "B"], ["34C", "30-32", "C"], ["36C", "32-34", "C"]],
+      headers: ["Size", "Chest (inches)", "Length (inches)"],
+      rows: [["S", "34", "16"], ["M", "36", "17"], ["L", "38", "18"], ["XL", "40", "19"]],
     },
   },
 
-  // ─────────────────────────────────────────
-  // 3. BRAS → T-Shirt Bras
-  // ─────────────────────────────────────────
+  // 3. TOPS → T-Shirts
   {
     id: 303,
-    name: "Seamless T-Shirt Bra",
+    name: "Seamless Basic T-Shirt",
     price: 1399,
-    category: "bras",
-    subCategory: "T-Shirt Bras",
+    category: "tops",
+    subCategory: "T-Shirts",
     images: ["/images/products/3.jpg"],
     imageMobile: ["/images/products/mob3.jpg"],
-    description: "Seamless T-shirt bra, invisible under clothing.",
-    sizes: ["32B", "34B", "34C", "36B", "36C", "38C"],
+    description: "Seamless basic T-shirt, comfortable for all-day wear.",
+    sizes: ["S", "M", "L", "XL", "XXL"],
     sizeChart: {
-      headers: ["Size", "Band (inches)", "Cup"],
-      rows: [["32B", "28-30", "B"], ["34B", "30-32", "B"], ["34C", "30-32", "C"], ["36B", "32-34", "B"], ["36C", "32-34", "C"], ["38C", "34-36", "C"]],
+      headers: ["Size", "Chest (inches)", "Length (inches)"],
+      rows: [["S", "34", "24"], ["M", "36", "25"], ["L", "38", "26"], ["XL", "40", "27"], ["XXL", "42", "28"]],
     },
   },
   {
     id: 304,
-    name: "Padded T-Shirt Bra",
+    name: "Graphic Print T-Shirt",
     price: 1499,
-    category: "bras",
-    subCategory: "T-Shirt Bras",
+    category: "tops",
+    subCategory: "T-Shirts",
     images: ["/images/products/5.jpg"],
     imageMobile: ["/images/products/mob5.jpg"],
-    description: "Lightly padded T-shirt bra for natural shape.",
-    sizes: ["32B", "34B", "34C", "36C"],
+    description: "Trendy graphic print T-shirt in soft cotton.",
+    sizes: ["S", "M", "L", "XL"],
     sizeChart: {
-      headers: ["Size", "Band (inches)", "Cup"],
-      rows: [["32B", "28-30", "B"], ["34B", "30-32", "B"], ["34C", "30-32", "C"], ["36C", "32-34", "C"]],
+      headers: ["Size", "Chest (inches)", "Length (inches)"],
+      rows: [["S", "34", "24"], ["M", "36", "25"], ["L", "38", "26"], ["XL", "40", "27"]],
     },
   },
 
-  // ─────────────────────────────────────────
-  // 3. BRAS → Sports Bras
-  // ─────────────────────────────────────────
+  // 3. TOPS → Shirts
   {
     id: 305,
-    name: "High Impact Sports Bra",
+    name: "Oversized Button-Down Shirt",
     price: 1899,
-    category: "bras",
-    subCategory: "Sports Bras",
+    category: "tops",
+    subCategory: "Shirts",
     images: ["/images/products/1.jpg"],
     imageMobile: ["/images/products/mob.jpg"],
-    description: "High impact sports bra for intense workouts.",
+    description: "Relaxed oversized button-down shirt for a chic casual look.",
     sizes: ["S", "M", "L", "XL"],
     sizeChart: {
-      headers: ["Size", "Chest (inches)"],
-      rows: [["S", "32-34"], ["M", "34-36"], ["L", "36-38"], ["XL", "38-40"]],
+      headers: ["Size", "Chest (inches)", "Length (inches)"],
+      rows: [["S", "38", "28"], ["M", "40", "29"], ["L", "42", "30"], ["XL", "44", "31"]],
     },
   },
   {
     id: 306,
-    name: "Medium Support Sports Bra",
+    name: "Striped Casual Shirt",
     price: 1599,
-    category: "bras",
-    subCategory: "Sports Bras",
+    category: "tops",
+    subCategory: "Shirts",
     images: ["/images/products/2.jpg"],
     imageMobile: ["/images/products/mob2.jpg"],
-    description: "Medium support sports bra, great for yoga and pilates.",
+    description: "Classic striped casual shirt, great for everyday styling.",
     sizes: ["S", "M", "L", "XL"],
     sizeChart: {
-      headers: ["Size", "Chest (inches)"],
-      rows: [["S", "32-34"], ["M", "34-36"], ["L", "36-38"], ["XL", "38-40"]],
+      headers: ["Size", "Chest (inches)", "Length (inches)"],
+      rows: [["S", "36", "27"], ["M", "38", "28"], ["L", "40", "29"], ["XL", "42", "30"]],
     },
   },
 
-  // ─────────────────────────────────────────
-  // 3. BRAS → Wireless Bras
-  // ─────────────────────────────────────────
+  // 3. TOPS → Tank Tops
   {
     id: 307,
-    name: "Soft Wireless Bra",
+    name: "Ribbed Tank Top",
     price: 1299,
-    category: "bras",
-    subCategory: "Wireless Bras",
+    category: "tops",
+    subCategory: "Tank Tops",
     images: ["/images/products/3.jpg"],
     imageMobile: ["/images/products/mob3.jpg"],
-    description: "Ultra-soft wireless bra for all-day comfort.",
+    description: "Stretchy ribbed tank top, perfect for layering or solo wear.",
     sizes: ["S", "M", "L", "XL", "XXL"],
     sizeChart: {
-      headers: ["Size", "Chest (inches)"],
-      rows: [["S", "32-34"], ["M", "34-36"], ["L", "36-38"], ["XL", "38-40"], ["XXL", "40-42"]],
+      headers: ["Size", "Chest (inches)", "Length (inches)"],
+      rows: [["S", "34", "22"], ["M", "36", "23"], ["L", "38", "24"], ["XL", "40", "25"], ["XXL", "42", "26"]],
     },
   },
 
-  // ─────────────────────────────────────────
-  // 3. BRAS → Strapless Bras
-  // ─────────────────────────────────────────
+  // 3. TOPS → Blouses
   {
     id: 308,
-    name: "Strapless Push-Up Bra",
+    name: "Flowy Chiffon Blouse",
     price: 1699,
-    category: "bras",
-    subCategory: "Strapless Bras",
+    category: "tops",
+    subCategory: "Blouses",
     images: ["/images/products/5.jpg"],
     imageMobile: ["/images/products/mob5.jpg"],
-    description: "Secure strapless bra with silicone grip band.",
-    sizes: ["32B", "34B", "34C", "36C"],
+    description: "Elegant flowy chiffon blouse with delicate pleating.",
+    sizes: ["S", "M", "L", "XL"],
     sizeChart: {
-      headers: ["Size", "Band (inches)", "Cup"],
-      rows: [["32B", "28-30", "B"], ["34B", "30-32", "B"], ["34C", "30-32", "C"], ["36C", "32-34", "C"]],
+      headers: ["Size", "Chest (inches)", "Length (inches)"],
+      rows: [["S", "34", "24"], ["M", "36", "25"], ["L", "38", "26"], ["XL", "40", "27"]],
     },
   },
 
-  // ─────────────────────────────────────────
-  // 4. PANTIES → Briefs
-  // ─────────────────────────────────────────
+  // 4. BOTTOMS → Trousers
   {
     id: 401,
-    name: "Cotton Full Brief",
-    price: 599,
-    category: "panties",
-    subCategory: "Briefs",
+    name: "Wide Leg Trousers",
+    price: 2199,
+    category: "bottoms",
+    subCategory: "Trousers",
     images: ["/images/products/1.jpg"],
     imageMobile: ["/images/products/mob.jpg"],
-    description: "Comfortable full coverage cotton brief.",
+    description: "Comfortable wide leg trousers with elastic waistband.",
     sizes: ["S", "M", "L", "XL", "XXL"],
     sizeChart: {
-      headers: ["Size", "Waist (inches)", "Hip (inches)"],
-      rows: [["S", "26-28", "34-36"], ["M", "28-30", "36-38"], ["L", "30-32", "38-40"], ["XL", "32-34", "40-42"], ["XXL", "34-36", "42-44"]],
+      headers: ["Size", "Waist (inches)", "Hip (inches)", "Length (inches)"],
+      rows: [["S", "26-28", "34-36", "38"], ["M", "28-30", "36-38", "39"], ["L", "30-32", "38-40", "40"], ["XL", "32-34", "40-42", "41"], ["XXL", "34-36", "42-44", "42"]],
     },
   },
   {
     id: 402,
-    name: "Lace Trim Brief",
-    price: 699,
-    category: "panties",
-    subCategory: "Briefs",
+    name: "Tailored Straight Trousers",
+    price: 2499,
+    category: "bottoms",
+    subCategory: "Trousers",
     images: ["/images/products/2.jpg"],
     imageMobile: ["/images/products/mob2.jpg"],
-    description: "Soft cotton brief with decorative lace trim.",
+    description: "Smart tailored straight trousers for a polished look.",
     sizes: ["S", "M", "L", "XL"],
     sizeChart: {
-      headers: ["Size", "Waist (inches)", "Hip (inches)"],
-      rows: [["S", "26-28", "34-36"], ["M", "28-30", "36-38"], ["L", "30-32", "38-40"], ["XL", "32-34", "40-42"]],
+      headers: ["Size", "Waist (inches)", "Hip (inches)", "Length (inches)"],
+      rows: [["S", "26-28", "34-36", "38"], ["M", "28-30", "36-38", "39"], ["L", "30-32", "38-40", "40"], ["XL", "32-34", "40-42", "41"]],
     },
   },
 
-  // ─────────────────────────────────────────
-  // 4. PANTIES → Thongs
-  // ─────────────────────────────────────────
+  // 4. BOTTOMS → Shorts
   {
     id: 403,
-    name: "Basic Thong",
-    price: 499,
-    category: "panties",
-    subCategory: "Thongs",
+    name: "Casual Cotton Shorts",
+    price: 999,
+    category: "bottoms",
+    subCategory: "Shorts",
     images: ["/images/products/3.jpg"],
     imageMobile: ["/images/products/mob3.jpg"],
-    description: "Seamless basic thong for no visible panty line.",
+    description: "Comfortable casual cotton shorts for warm days.",
     sizes: ["S", "M", "L", "XL"],
     sizeChart: {
       headers: ["Size", "Waist (inches)", "Hip (inches)"],
@@ -369,13 +335,13 @@ export const productsData = [
   },
   {
     id: 404,
-    name: "Lace Thong",
-    price: 649,
-    category: "panties",
-    subCategory: "Thongs",
+    name: "Denim Shorts",
+    price: 1499,
+    category: "bottoms",
+    subCategory: "Shorts",
     images: ["/images/products/5.jpg"],
     imageMobile: ["/images/products/mob5.jpg"],
-    description: "Delicate lace thong with satin bow detail.",
+    description: "Classic denim shorts with a relaxed fit.",
     sizes: ["S", "M", "L", "XL"],
     sizeChart: {
       headers: ["Size", "Waist (inches)", "Hip (inches)"],
@@ -383,37 +349,33 @@ export const productsData = [
     },
   },
 
-  // ─────────────────────────────────────────
-  // 4. PANTIES → Boyshorts
-  // ─────────────────────────────────────────
+  // 4. BOTTOMS → Skirts
   {
     id: 405,
-    name: "Cotton Boyshort",
-    price: 699,
-    category: "panties",
-    subCategory: "Boyshorts",
+    name: "Flared Midi Skirt",
+    price: 1799,
+    category: "bottoms",
+    subCategory: "Skirts",
     images: ["/images/products/1.jpg"],
     imageMobile: ["/images/products/mob.jpg"],
-    description: "Comfortable cotton boyshort with full coverage.",
+    description: "Elegant flared midi skirt with full coverage.",
     sizes: ["S", "M", "L", "XL", "XXL"],
     sizeChart: {
-      headers: ["Size", "Waist (inches)", "Hip (inches)"],
-      rows: [["S", "26-28", "34-36"], ["M", "28-30", "36-38"], ["L", "30-32", "38-40"], ["XL", "32-34", "40-42"], ["XXL", "34-36", "42-44"]],
+      headers: ["Size", "Waist (inches)", "Hip (inches)", "Length (inches)"],
+      rows: [["S", "26-28", "34-36", "28"], ["M", "28-30", "36-38", "29"], ["L", "30-32", "38-40", "30"], ["XL", "32-34", "40-42", "31"], ["XXL", "34-36", "42-44", "32"]],
     },
   },
 
-  // ─────────────────────────────────────────
-  // 4. PANTIES → High Waist
-  // ─────────────────────────────────────────
+  // 4. BOTTOMS → Palazzo
   {
     id: 406,
-    name: "High Waist Control Brief",
-    price: 899,
-    category: "panties",
-    subCategory: "High Waist",
+    name: "Flowy Palazzo Pants",
+    price: 1899,
+    category: "bottoms",
+    subCategory: "Palazzo",
     images: ["/images/products/2.jpg"],
     imageMobile: ["/images/products/mob2.jpg"],
-    description: "High waist brief with light tummy control.",
+    description: "Flowy palazzo pants with high waist and wide legs.",
     sizes: ["S", "M", "L", "XL", "XXL"],
     sizeChart: {
       headers: ["Size", "Waist (inches)", "Hip (inches)"],
@@ -421,272 +383,214 @@ export const productsData = [
     },
   },
 
-  // ─────────────────────────────────────────
-  // 4. PANTIES → Bikini
-  // ─────────────────────────────────────────
+  // 4. BOTTOMS → Joggers
   {
     id: 407,
-    name: "Classic Bikini Panty",
-    price: 549,
-    category: "panties",
-    subCategory: "Bikini",
+    name: "Cotton Jogger Pants",
+    price: 1599,
+    category: "bottoms",
+    subCategory: "Joggers",
     images: ["/images/products/3.jpg"],
     imageMobile: ["/images/products/mob3.jpg"],
-    description: "Classic bikini cut panty in soft microfiber.",
-    sizes: ["S", "M", "L", "XL"],
+    description: "Soft cotton jogger pants with drawstring waist.",
+    sizes: ["S", "M", "L", "XL", "XXL"],
     sizeChart: {
       headers: ["Size", "Waist (inches)", "Hip (inches)"],
-      rows: [["S", "26-28", "34-36"], ["M", "28-30", "36-38"], ["L", "30-32", "38-40"], ["XL", "32-34", "40-42"]],
+      rows: [["S", "26-28", "34-36"], ["M", "28-30", "36-38"], ["L", "30-32", "38-40"], ["XL", "32-34", "40-42"], ["XXL", "34-36", "42-44"]],
     },
   },
 
-  // ─────────────────────────────────────────
-  // 5. BRA PANTY SETS → Lace Sets
-  // ─────────────────────────────────────────
+  // 5. DRESSES → Maxi Dresses
   {
     id: 501,
-    name: "Black Lace Bra Panty Set",
+    name: "Floral Maxi Dress",
     price: 2499,
-    category: "bra-panty-sets",
-    subCategory: "Lace Sets",
+    category: "dresses",
+    subCategory: "Maxi Dresses",
     images: ["/images/products/1.jpg"],
     imageMobile: ["/images/products/mob.jpg"],
-    description: "Elegant black lace bra and panty matching set.",
+    description: "Elegant floral maxi dress perfect for summer events.",
     sizes: ["S", "M", "L", "XL"],
     sizeChart: {
-      headers: ["Size", "Chest (inches)", "Waist (inches)"],
-      rows: [["S", "34", "26-28"], ["M", "36", "28-30"], ["L", "38", "30-32"], ["XL", "40", "32-34"]],
+      headers: ["Size", "Chest (inches)", "Waist (inches)", "Length (inches)"],
+      rows: [["S", "34", "26-28", "52"], ["M", "36", "28-30", "53"], ["L", "38", "30-32", "54"], ["XL", "40", "32-34", "55"]],
     },
   },
   {
     id: 502,
-    name: "Red Lace Set",
+    name: "Solid Maxi Dress",
     price: 2699,
-    category: "bra-panty-sets",
-    subCategory: "Lace Sets",
+    category: "dresses",
+    subCategory: "Maxi Dresses",
     images: ["/images/products/2.jpg"],
     imageMobile: ["/images/products/mob2.jpg"],
-    description: "Bold red lace set with push-up bra and matching brief.",
+    description: "Flowing solid maxi dress with side slit.",
     sizes: ["S", "M", "L", "XL"],
     sizeChart: {
-      headers: ["Size", "Chest (inches)", "Waist (inches)"],
-      rows: [["S", "34", "26-28"], ["M", "36", "28-30"], ["L", "38", "30-32"], ["XL", "40", "32-34"]],
+      headers: ["Size", "Chest (inches)", "Waist (inches)", "Length (inches)"],
+      rows: [["S", "34", "26-28", "52"], ["M", "36", "28-30", "53"], ["L", "38", "30-32", "54"], ["XL", "40", "32-34", "55"]],
     },
   },
 
-  // ─────────────────────────────────────────
-  // 5. BRA PANTY SETS → Cotton Sets
-  // ─────────────────────────────────────────
+  // 5. DRESSES → Mini Dresses
   {
     id: 503,
-    name: "Everyday Cotton Set",
+    name: "Casual Mini Dress",
     price: 1799,
-    category: "bra-panty-sets",
-    subCategory: "Cotton Sets",
+    category: "dresses",
+    subCategory: "Mini Dresses",
     images: ["/images/products/3.jpg"],
     imageMobile: ["/images/products/mob3.jpg"],
-    description: "Comfortable everyday cotton bra and panty set.",
+    description: "Fun and flirty casual mini dress for everyday outings.",
     sizes: ["S", "M", "L", "XL", "XXL"],
     sizeChart: {
-      headers: ["Size", "Chest (inches)", "Waist (inches)"],
-      rows: [["S", "34", "26-28"], ["M", "36", "28-30"], ["L", "38", "30-32"], ["XL", "40", "32-34"], ["XXL", "42", "34-36"]],
+      headers: ["Size", "Chest (inches)", "Waist (inches)", "Length (inches)"],
+      rows: [["S", "34", "26-28", "32"], ["M", "36", "28-30", "33"], ["L", "38", "30-32", "34"], ["XL", "40", "32-34", "35"], ["XXL", "42", "34-36", "36"]],
     },
   },
 
-  // ─────────────────────────────────────────
-  // 5. BRA PANTY SETS → Satin Sets
-  // ─────────────────────────────────────────
+  // 5. DRESSES → Midi Dresses
   {
     id: 504,
-    name: "Ivory Satin Set",
+    name: "Wrap Midi Dress",
     price: 2999,
-    category: "bra-panty-sets",
-    subCategory: "Satin Sets",
+    category: "dresses",
+    subCategory: "Midi Dresses",
     images: ["/images/products/5.jpg"],
     imageMobile: ["/images/products/mob5.jpg"],
-    description: "Smooth ivory satin bra and panty set, luxuriously soft.",
+    description: "Flattering wrap midi dress in smooth fabric.",
     sizes: ["S", "M", "L", "XL"],
     sizeChart: {
-      headers: ["Size", "Chest (inches)", "Waist (inches)"],
-      rows: [["S", "34", "26-28"], ["M", "36", "28-30"], ["L", "38", "30-32"], ["XL", "40", "32-34"]],
+      headers: ["Size", "Chest (inches)", "Waist (inches)", "Length (inches)"],
+      rows: [["S", "34", "26-28", "42"], ["M", "36", "28-30", "43"], ["L", "38", "30-32", "44"], ["XL", "40", "32-34", "45"]],
     },
   },
 
-  // ─────────────────────────────────────────
-  // 5. BRA PANTY SETS → Bridal Sets
-  // ─────────────────────────────────────────
+  // 5. DRESSES → Party Wear
   {
     id: 505,
-    name: "White Bridal Lace Set",
+    name: "Sequin Party Dress",
     price: 3499,
-    category: "bra-panty-sets",
-    subCategory: "Bridal Sets",
+    category: "dresses",
+    subCategory: "Party Wear",
     images: ["/images/products/1.jpg"],
     imageMobile: ["/images/products/mob.jpg"],
-    description: "Dreamy white bridal lace set with delicate floral detail.",
+    description: "Glamorous sequin party dress for special occasions.",
     sizes: ["S", "M", "L", "XL"],
     sizeChart: {
-      headers: ["Size", "Chest (inches)", "Waist (inches)"],
-      rows: [["S", "34", "26-28"], ["M", "36", "28-30"], ["L", "38", "30-32"], ["XL", "40", "32-34"]],
+      headers: ["Size", "Chest (inches)", "Waist (inches)", "Length (inches)"],
+      rows: [["S", "34", "26-28", "38"], ["M", "36", "28-30", "39"], ["L", "38", "30-32", "40"], ["XL", "40", "32-34", "41"]],
     },
   },
 
-  // ─────────────────────────────────────────
-  // 6. BODY SHAPERS → Waist Cinchers
-  // ─────────────────────────────────────────
+  // 6. OUTERWEAR → Jackets
   {
     id: 601,
-    name: "Latex Waist Cincher",
+    name: "Denim Jacket",
     price: 2999,
-    category: "body-shapers",
-    subCategory: "Waist Cinchers",
+    category: "outerwear",
+    subCategory: "Jackets",
     images: ["/images/products/2.jpg"],
     imageMobile: ["/images/products/mob2.jpg"],
-    description: "Firm latex waist cincher for instant slimming effect.",
+    description: "Classic denim jacket with button front closure.",
     sizes: ["S", "M", "L", "XL", "XXL"],
     sizeChart: {
-      headers: ["Size", "Waist (inches)"],
-      rows: [["S", "24-26"], ["M", "27-29"], ["L", "30-32"], ["XL", "33-35"], ["XXL", "36-38"]],
+      headers: ["Size", "Chest (inches)", "Length (inches)"],
+      rows: [["S", "36", "24"], ["M", "38", "25"], ["L", "40", "26"], ["XL", "42", "27"], ["XXL", "44", "28"]],
     },
   },
   {
     id: 602,
-    name: "Breathable Waist Trainer",
-    price: 2599,
-    category: "body-shapers",
-    subCategory: "Waist Cinchers",
+    name: "Bomber Jacket",
+    price: 3499,
+    category: "outerwear",
+    subCategory: "Jackets",
     images: ["/images/products/3.jpg"],
     imageMobile: ["/images/products/mob3.jpg"],
-    description: "Breathable waist trainer with hook-and-eye closure.",
+    description: "Trendy bomber jacket with ribbed cuffs and hem.",
     sizes: ["S", "M", "L", "XL"],
     sizeChart: {
-      headers: ["Size", "Waist (inches)"],
-      rows: [["S", "24-26"], ["M", "27-29"], ["L", "30-32"], ["XL", "33-35"]],
+      headers: ["Size", "Chest (inches)", "Length (inches)"],
+      rows: [["S", "36", "24"], ["M", "38", "25"], ["L", "40", "26"], ["XL", "42", "27"]],
     },
   },
 
-  // ─────────────────────────────────────────
-  // 6. BODY SHAPERS → Full Body
-  // ─────────────────────────────────────────
+  // 6. OUTERWEAR → Coats
   {
     id: 603,
-    name: "Full Body Shaper Suit",
-    price: 3999,
-    category: "body-shapers",
-    subCategory: "Full Body",
+    name: "Long Wool Coat",
+    price: 5999,
+    category: "outerwear",
+    subCategory: "Coats",
     images: ["/images/products/5.jpg"],
     imageMobile: ["/images/products/mob5.jpg"],
-    description: "Full body shaper from bust to thigh for a smooth silhouette.",
+    description: "Elegant long wool coat for a sophisticated winter look.",
     sizes: ["S", "M", "L", "XL", "XXL"],
     sizeChart: {
-      headers: ["Size", "Chest (inches)", "Waist (inches)", "Hip (inches)"],
-      rows: [["S", "34", "28", "36"], ["M", "36", "30", "38"], ["L", "38", "32", "40"], ["XL", "40", "34", "42"], ["XXL", "42", "36", "44"]],
+      headers: ["Size", "Chest (inches)", "Length (inches)"],
+      rows: [["S", "36", "44"], ["M", "38", "45"], ["L", "40", "46"], ["XL", "42", "47"], ["XXL", "44", "48"]],
     },
   },
 
-  // ─────────────────────────────────────────
-  // 6. BODY SHAPERS → Shorts
-  // ─────────────────────────────────────────
+  // 6. OUTERWEAR → Hoodies
   {
     id: 604,
-    name: "Slimming Shaper Shorts",
-    price: 1999,
-    category: "body-shapers",
-    subCategory: "Shorts",
+    name: "Oversized Hoodie",
+    price: 2499,
+    category: "outerwear",
+    subCategory: "Hoodies",
     images: ["/images/products/1.jpg"],
     imageMobile: ["/images/products/mob.jpg"],
-    description: "High-waist slimming shorts with tummy and thigh control.",
+    description: "Cozy oversized hoodie with kangaroo pocket.",
     sizes: ["S", "M", "L", "XL", "XXL"],
     sizeChart: {
-      headers: ["Size", "Waist (inches)", "Hip (inches)"],
-      rows: [["S", "26-28", "34-36"], ["M", "28-30", "36-38"], ["L", "30-32", "38-40"], ["XL", "32-34", "40-42"], ["XXL", "34-36", "42-44"]],
+      headers: ["Size", "Chest (inches)", "Length (inches)"],
+      rows: [["S", "40", "26"], ["M", "42", "27"], ["L", "44", "28"], ["XL", "46", "29"], ["XXL", "48", "30"]],
     },
   },
 
-  // ─────────────────────────────────────────
-  // 7. LINGERIE → Babydolls
-  // ─────────────────────────────────────────
+  // 7. ACTIVEWEAR → Sports Tops
   {
     id: 701,
-    name: "Pink Lace Babydoll",
-    price: 2199,
-    category: "lingerie",
-    subCategory: "Babydolls",
+    name: "Racerback Sports Top",
+    price: 1899,
+    category: "activewear",
+    subCategory: "Sports Tops",
     images: ["/images/products/2.jpg"],
     imageMobile: ["/images/products/mob2.jpg"],
-    description: "Flowy pink lace babydoll with matching thong.",
+    description: "High performance racerback sports top for workouts.",
     sizes: ["S", "M", "L", "XL"],
     sizeChart: {
-      headers: ["Size", "Chest (inches)", "Hip (inches)"],
-      rows: [["S", "34", "36"], ["M", "36", "38"], ["L", "38", "40"], ["XL", "40", "42"]],
+      headers: ["Size", "Chest (inches)"],
+      rows: [["S", "32-34"], ["M", "34-36"], ["L", "36-38"], ["XL", "38-40"]],
     },
   },
   {
     id: 702,
-    name: "Black Mesh Babydoll",
-    price: 2499,
-    category: "lingerie",
-    subCategory: "Babydolls",
+    name: "Mesh Panel Sports Top",
+    price: 2099,
+    category: "activewear",
+    subCategory: "Sports Tops",
     images: ["/images/products/3.jpg"],
     imageMobile: ["/images/products/mob3.jpg"],
-    description: "Sheer black mesh babydoll with lace panel.",
+    description: "Breathable mesh panel sports top for intense training.",
     sizes: ["S", "M", "L", "XL"],
     sizeChart: {
-      headers: ["Size", "Chest (inches)", "Hip (inches)"],
-      rows: [["S", "34", "36"], ["M", "36", "38"], ["L", "38", "40"], ["XL", "40", "42"]],
+      headers: ["Size", "Chest (inches)"],
+      rows: [["S", "32-34"], ["M", "34-36"], ["L", "36-38"], ["XL", "38-40"]],
     },
   },
 
-  // ─────────────────────────────────────────
-  // 7. LINGERIE → Teddies
-  // ─────────────────────────────────────────
+  // 7. ACTIVEWEAR → Leggings
   {
     id: 703,
-    name: "Satin Teddy",
-    price: 2799,
-    category: "lingerie",
-    subCategory: "Teddies",
+    name: "High Waist Leggings",
+    price: 1999,
+    category: "activewear",
+    subCategory: "Leggings",
     images: ["/images/products/5.jpg"],
     imageMobile: ["/images/products/mob5.jpg"],
-    description: "Smooth satin teddy with snap closure.",
-    sizes: ["S", "M", "L", "XL"],
-    sizeChart: {
-      headers: ["Size", "Chest (inches)", "Hip (inches)"],
-      rows: [["S", "34", "36"], ["M", "36", "38"], ["L", "38", "40"], ["XL", "40", "42"]],
-    },
-  },
-
-  // ─────────────────────────────────────────
-  // 7. LINGERIE → Corsets
-  // ─────────────────────────────────────────
-  {
-    id: 704,
-    name: "Steel Boned Corset",
-    price: 4999,
-    category: "lingerie",
-    subCategory: "Corsets",
-    images: ["/images/products/1.jpg"],
-    imageMobile: ["/images/products/mob.jpg"],
-    description: "Classic steel boned corset for dramatic waist reduction.",
-    sizes: ["S", "M", "L", "XL"],
-    sizeChart: {
-      headers: ["Size", "Waist (inches)"],
-      rows: [["S", "24-26"], ["M", "27-29"], ["L", "30-32"], ["XL", "33-35"]],
-    },
-  },
-
-  // ─────────────────────────────────────────
-  // 7. LINGERIE → Garter Sets
-  // ─────────────────────────────────────────
-  {
-    id: 705,
-    name: "Lace Garter Set",
-    price: 1999,
-    category: "lingerie",
-    subCategory: "Garter Sets",
-    images: ["/images/products/2.jpg"],
-    imageMobile: ["/images/products/mob2.jpg"],
-    description: "Romantic lace garter belt set with matching stockings.",
+    description: "Squat-proof high waist leggings with side pockets.",
     sizes: ["S", "M", "L", "XL"],
     sizeChart: {
       headers: ["Size", "Waist (inches)", "Hip (inches)"],
@@ -694,9 +598,41 @@ export const productsData = [
     },
   },
 
-  // ─────────────────────────────────────────
-  // 8. TOPS
-  // ─────────────────────────────────────────
+  // 7. ACTIVEWEAR → Track Suits
+  {
+    id: 704,
+    name: "Zip-Up Track Suit",
+    price: 4499,
+    category: "activewear",
+    subCategory: "Track Suits",
+    images: ["/images/products/1.jpg"],
+    imageMobile: ["/images/products/mob.jpg"],
+    description: "Classic zip-up track suit with matching jogger pants.",
+    sizes: ["S", "M", "L", "XL"],
+    sizeChart: {
+      headers: ["Size", "Chest (inches)", "Waist (inches)"],
+      rows: [["S", "34", "26-28"], ["M", "36", "28-30"], ["L", "38", "30-32"], ["XL", "40", "32-34"]],
+    },
+  },
+
+  // 7. ACTIVEWEAR → Gym Wear
+  {
+    id: 705,
+    name: "Gym Set",
+    price: 2999,
+    category: "activewear",
+    subCategory: "Gym Wear",
+    images: ["/images/products/2.jpg"],
+    imageMobile: ["/images/products/mob2.jpg"],
+    description: "Matching gym set with sports top and leggings.",
+    sizes: ["S", "M", "L", "XL"],
+    sizeChart: {
+      headers: ["Size", "Chest (inches)", "Waist (inches)"],
+      rows: [["S", "34", "26-28"], ["M", "36", "28-30"], ["L", "38", "30-32"], ["XL", "40", "32-34"]],
+    },
+  },
+
+  // 8. TOPS (standalone - no subCategory)
   {
     id: 801,
     name: "Ribbed Crop Top",
@@ -743,18 +679,16 @@ export const productsData = [
     },
   },
 
-  // ─────────────────────────────────────────
-  // 9. BOTTOMS
-  // ─────────────────────────────────────────
+  // 9. BOTTOMS (standalone - no subCategory)
   {
     id: 901,
-    name: "Satin Sleep Shorts",
+    name: "Satin Wide Leg Pants",
     price: 1299,
     category: "bottoms",
     subCategory: "",
     images: ["/images/products/2.jpg"],
     imageMobile: ["/images/products/mob2.jpg"],
-    description: "Smooth satin sleep shorts with elastic waistband.",
+    description: "Smooth satin wide leg pants with elastic waistband.",
     sizes: ["S", "M", "L", "XL", "XXL"],
     sizeChart: {
       headers: ["Size", "Waist (inches)", "Hip (inches)"],
@@ -778,13 +712,13 @@ export const productsData = [
   },
   {
     id: 903,
-    name: "Cotton Pyjama Bottoms",
+    name: "Cotton Casual Pants",
     price: 1499,
     category: "bottoms",
     subCategory: "",
     images: ["/images/products/5.jpg"],
     imageMobile: ["/images/products/mob5.jpg"],
-    description: "Classic cotton pyjama bottoms with drawstring waist.",
+    description: "Classic cotton casual pants with drawstring waist.",
     sizes: ["S", "M", "L", "XL", "XXL"],
     sizeChart: {
       headers: ["Size", "Waist (inches)", "Hip (inches)"],
