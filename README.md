@@ -1,21 +1,42 @@
-<<<<<<< HEAD
-# React + Vite
+# Monaz Store — React E-Commerce App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React-based e-commerce storefront built as an early version of the **Monaz** store, featuring product browsing, cart management, and checkout flow.
 
-Currently, two official plugins are available:
+🔗 **Live Demo:** [monaz-store.vercel.app](https://monaz-store.vercel.app/)
+🔗 **Repository:** [github.com/areej-png/Monaz-store](https://github.com/areej-png/Monaz-store)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Overview
 
-## React Compiler
+This was the initial version of the Monaz store, built entirely with React to handle product display, shopping cart, and checkout functionality on the frontend. The project was later migrated to a **Shopify-based store** ([monaaz.com](https://monaaz.com)) for faster deployment, built-in payment processing, and easier inventory management at scale.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Tech Stack
 
-## Expanding the ESLint configuration
+- **Framework:** React.js
+- **Deployment:** Vercel
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-=======
-# Monaz-store
-A fully responsive e-commerce web app with product browsing, category sections, blog integration, and clean UI design.
->>>>>>> f54c5da28210bddb2c468358077a3d6d37cc1e22
+## Features
+
+- Product listing with browsable catalog
+- Shopping cart — add, update, and remove items
+- Checkout flow
+- Responsive design
+
+## Status
+
+✅ Completed as a standalone React build. Superseded by the Shopify version of Monaz for production use.
+
+## Getting Started
+
+```bash
+# install dependencies
+npm install
+
+# run locally
+npm start
+```
+
+## Author
+
+**Sidra Amir** — Front-End Developer
+📧 areejamir890@gmail.com
+🔗 [GitHub](https://github.com/areej-png) · [Portfolio](https://personal-site-steel-eight.vercel.app/)
